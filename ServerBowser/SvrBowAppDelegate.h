@@ -7,9 +7,24 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "SvrBowWFHMenu.h"
 
-@interface SvrBowAppDelegate : NSObject <NSApplicationDelegate>
 
-@property (assign) IBOutlet NSWindow *window;
+
+@interface SvrBowAppDelegate : NSObject <NSApplicationDelegate> {
+   // NSWindow *window;
+    NSMenu *statusMenu;
+    NSStatusItem * statusItem;
+    SvrBowWFHMenu *wfhMenu;
+    NSTimer *refreshTimer;
+    NSTimeInterval lastRefresh;
+    NSMenuItem *refresher;
+    NSMenuItem *refreshRate;
+
+}
+//@property (assign) IBOutlet NSWindow *window;
+-(void)setupMenu;
+-(void)quit;
+-(void)setTitle:(NSString*)title;
 
 @end

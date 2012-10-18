@@ -7,28 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05330540162DB9590055D2C3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0533053F162DB9590055D2C3 /* MainMenu.xib */; };
+		0533054A162DED3A0055D2C3 /* bwsr.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 05330549162DED3A0055D2C3 /* bwsr.iconset */; };
 		05662B6916275A8300C34B08 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05662B6816275A8300C34B08 /* Cocoa.framework */; };
 		05662B7316275A8300C34B08 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05662B7116275A8300C34B08 /* InfoPlist.strings */; };
 		05662B7516275A8300C34B08 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05662B7416275A8300C34B08 /* main.m */; };
-		05662B7916275A8300C34B08 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 05662B7716275A8300C34B08 /* Credits.rtf */; };
 		05662B7C16275A8300C34B08 /* SvrBowAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05662B7B16275A8300C34B08 /* SvrBowAppDelegate.m */; };
-		05662B7F16275A8300C34B08 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05662B7D16275A8300C34B08 /* MainMenu.xib */; };
+		057D134A162C5C7B0079B517 /* SvrBowWFHMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 057D1349162C5C7B0079B517 /* SvrBowWFHMenu.m */; };
+		5881335D162B3B7800A1487D /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 5881324D162B3B7600A1487D /* GCDAsyncSocket.m */; };
+		5881335E162B3B7800A1487D /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 5881324F162B3B7600A1487D /* GCDAsyncUdpSocket.m */; };
+		588133D9162B3B9B00A1487D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 588133D8162B3B9B00A1487D /* Security.framework */; };
+		58F69721162BA2F2004F20CF /* SvrBowSourceServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F69720162BA2F2004F20CF /* SvrBowSourceServer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		05662B6416275A8300C34B08 /* ServerBowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ServerBowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0533053F162DB9590055D2C3 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		05330549162DED3A0055D2C3 /* bwsr.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = bwsr.iconset; sourceTree = "<group>"; };
+		05662B6416275A8300C34B08 /* SvrMnu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SvrMnu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05662B6816275A8300C34B08 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		05662B6B16275A8300C34B08 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		05662B6C16275A8300C34B08 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		05662B6D16275A8300C34B08 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		05662B7016275A8300C34B08 /* ServerBowser-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ServerBowser-Info.plist"; sourceTree = "<group>"; };
 		05662B7216275A8300C34B08 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		05662B7416275A8300C34B08 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		05662B7616275A8300C34B08 /* ServerBowser-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ServerBowser-Prefix.pch"; sourceTree = "<group>"; };
-		05662B7816275A8300C34B08 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		05662B7A16275A8300C34B08 /* SvrBowAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SvrBowAppDelegate.h; sourceTree = "<group>"; };
 		05662B7B16275A8300C34B08 /* SvrBowAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SvrBowAppDelegate.m; sourceTree = "<group>"; };
-		05662B7E16275A8300C34B08 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		057D1348162C5C7B0079B517 /* SvrBowWFHMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SvrBowWFHMenu.h; sourceTree = "<group>"; };
+		057D1349162C5C7B0079B517 /* SvrBowWFHMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SvrBowWFHMenu.m; sourceTree = "<group>"; };
+		5881324B162B3B7600A1487D /* Documentation.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Documentation.html; sourceTree = "<group>"; };
+		5881324C162B3B7600A1487D /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		5881324D162B3B7600A1487D /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		5881324E162B3B7600A1487D /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
+		5881324F162B3B7600A1487D /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		588133D8162B3B9B00A1487D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		58F6971F162BA2F2004F20CF /* SvrBowSourceServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SvrBowSourceServer.h; sourceTree = "<group>"; };
+		58F69720162BA2F2004F20CF /* SvrBowSourceServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SvrBowSourceServer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				588133D9162B3B9B00A1487D /* Security.framework in Frameworks */,
 				05662B6916275A8300C34B08 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,6 +61,7 @@
 		05662B5916275A8300C34B08 = {
 			isa = PBXGroup;
 			children = (
+				05330549162DED3A0055D2C3 /* bwsr.iconset */,
 				05662B6E16275A8300C34B08 /* ServerBowser */,
 				05662B6716275A8300C34B08 /* Frameworks */,
 				05662B6516275A8300C34B08 /* Products */,
@@ -55,7 +71,7 @@
 		05662B6516275A8300C34B08 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				05662B6416275A8300C34B08 /* ServerBowser.app */,
+				05662B6416275A8300C34B08 /* SvrMnu.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -63,7 +79,7 @@
 		05662B6716275A8300C34B08 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				05662B6816275A8300C34B08 /* Cocoa.framework */,
+				588133D8162B3B9B00A1487D /* Security.framework */,
 				05662B6A16275A8300C34B08 /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -72,8 +88,8 @@
 		05662B6A16275A8300C34B08 /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				05662B6816275A8300C34B08 /* Cocoa.framework */,
 				05662B6B16275A8300C34B08 /* AppKit.framework */,
-				05662B6C16275A8300C34B08 /* CoreData.framework */,
 				05662B6D16275A8300C34B08 /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
@@ -84,7 +100,12 @@
 			children = (
 				05662B7A16275A8300C34B08 /* SvrBowAppDelegate.h */,
 				05662B7B16275A8300C34B08 /* SvrBowAppDelegate.m */,
-				05662B7D16275A8300C34B08 /* MainMenu.xib */,
+				057D1348162C5C7B0079B517 /* SvrBowWFHMenu.h */,
+				057D1349162C5C7B0079B517 /* SvrBowWFHMenu.m */,
+				58F6971F162BA2F2004F20CF /* SvrBowSourceServer.h */,
+				58F69720162BA2F2004F20CF /* SvrBowSourceServer.m */,
+				0533053F162DB9590055D2C3 /* MainMenu.xib */,
+				5881324A162B3B7600A1487D /* UdpSocket */,
 				05662B6F16275A8300C34B08 /* Supporting Files */,
 			);
 			path = ServerBowser;
@@ -97,17 +118,29 @@
 				05662B7116275A8300C34B08 /* InfoPlist.strings */,
 				05662B7416275A8300C34B08 /* main.m */,
 				05662B7616275A8300C34B08 /* ServerBowser-Prefix.pch */,
-				05662B7716275A8300C34B08 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5881324A162B3B7600A1487D /* UdpSocket */ = {
+			isa = PBXGroup;
+			children = (
+				5881324B162B3B7600A1487D /* Documentation.html */,
+				5881324C162B3B7600A1487D /* GCDAsyncSocket.h */,
+				5881324D162B3B7600A1487D /* GCDAsyncSocket.m */,
+				5881324E162B3B7600A1487D /* GCDAsyncUdpSocket.h */,
+				5881324F162B3B7600A1487D /* GCDAsyncUdpSocket.m */,
+			);
+			name = UdpSocket;
+			path = GCD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		05662B6316275A8300C34B08 /* ServerBowser */ = {
+		05662B6316275A8300C34B08 /* SvrMnu */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 05662B8216275A8300C34B08 /* Build configuration list for PBXNativeTarget "ServerBowser" */;
+			buildConfigurationList = 05662B8216275A8300C34B08 /* Build configuration list for PBXNativeTarget "SvrMnu" */;
 			buildPhases = (
 				05662B6016275A8300C34B08 /* Sources */,
 				05662B6116275A8300C34B08 /* Frameworks */,
@@ -117,9 +150,9 @@
 			);
 			dependencies = (
 			);
-			name = ServerBowser;
+			name = SvrMnu;
 			productName = ServerBowser;
-			productReference = 05662B6416275A8300C34B08 /* ServerBowser.app */;
+			productReference = 05662B6416275A8300C34B08 /* SvrMnu.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -138,13 +171,14 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				English,
 			);
 			mainGroup = 05662B5916275A8300C34B08;
 			productRefGroup = 05662B6516275A8300C34B08 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				05662B6316275A8300C34B08 /* ServerBowser */,
+				05662B6316275A8300C34B08 /* SvrMnu */,
 			);
 		};
 /* End PBXProject section */
@@ -155,8 +189,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				05662B7316275A8300C34B08 /* InfoPlist.strings in Resources */,
-				05662B7916275A8300C34B08 /* Credits.rtf in Resources */,
-				05662B7F16275A8300C34B08 /* MainMenu.xib in Resources */,
+				05330540162DB9590055D2C3 /* MainMenu.xib in Resources */,
+				0533054A162DED3A0055D2C3 /* bwsr.iconset in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +203,10 @@
 			files = (
 				05662B7516275A8300C34B08 /* main.m in Sources */,
 				05662B7C16275A8300C34B08 /* SvrBowAppDelegate.m in Sources */,
+				5881335D162B3B7800A1487D /* GCDAsyncSocket.m in Sources */,
+				5881335E162B3B7800A1487D /* GCDAsyncUdpSocket.m in Sources */,
+				58F69721162BA2F2004F20CF /* SvrBowSourceServer.m in Sources */,
+				057D134A162C5C7B0079B517 /* SvrBowWFHMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,22 +219,6 @@
 				05662B7216275A8300C34B08 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		05662B7716275A8300C34B08 /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				05662B7816275A8300C34B08 /* en */,
-			);
-			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
-		05662B7D16275A8300C34B08 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				05662B7E16275A8300C34B08 /* en */,
-			);
-			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -258,11 +280,14 @@
 		05662B8316275A8300C34B08 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ServerBowser/ServerBowser-Prefix.pch";
 				INFOPLIST_FILE = "ServerBowser/ServerBowser-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -270,11 +295,14 @@
 		05662B8416275A8300C34B08 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ServerBowser/ServerBowser-Prefix.pch";
 				INFOPLIST_FILE = "ServerBowser/ServerBowser-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -291,13 +319,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		05662B8216275A8300C34B08 /* Build configuration list for PBXNativeTarget "ServerBowser" */ = {
+		05662B8216275A8300C34B08 /* Build configuration list for PBXNativeTarget "SvrMnu" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				05662B8316275A8300C34B08 /* Debug */,
 				05662B8416275A8300C34B08 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
