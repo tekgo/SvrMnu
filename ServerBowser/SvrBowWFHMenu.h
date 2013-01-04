@@ -17,6 +17,7 @@
 }
 
 @property id delegate;
+@property int value;
 
 -(void)refresh;
 -(void)launchWFH;

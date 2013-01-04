@@ -8,7 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 #import "SvrBowWFHMenu.h"
-
+#import "Blink1.h"
+#import "Reachability.h"
 
 
 @interface SvrBowAppDelegate : NSObject <NSApplicationDelegate> {
@@ -20,11 +21,18 @@
     NSTimeInterval lastRefresh;
     NSMenuItem *refresher;
     NSMenuItem *refreshRate;
+    
+    bool screenAsleep;
+    bool userDeactive;
+    Blink1 *blink;
+    Reachability *reach;
 
 }
 //@property (assign) IBOutlet NSWindow *window;
 -(void)setupMenu;
 -(void)quit;
 -(void)setTitle:(NSString*)title;
+
+-(void)cancelRefresh;
 
 @end

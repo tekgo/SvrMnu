@@ -14,6 +14,13 @@
 		05662B7516275A8300C34B08 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05662B7416275A8300C34B08 /* main.m */; };
 		05662B7C16275A8300C34B08 /* SvrBowAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05662B7B16275A8300C34B08 /* SvrBowAppDelegate.m */; };
 		057D134A162C5C7B0079B517 /* SvrBowWFHMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 057D1349162C5C7B0079B517 /* SvrBowWFHMenu.m */; };
+		582391D71696636700A4D3D8 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 582391D61696636700A4D3D8 /* Reachability.m */; };
+		582391DB1696638C00A4D3D8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 582391DA1696638C00A4D3D8 /* SystemConfiguration.framework */; };
+		587B6DF116961EBF00F7A4EC /* blink1 = [[Blink1 alloc].textClipping in Resources */ = {isa = PBXBuildFile; fileRef = 587B6DE916961EBF00F7A4EC /* blink1 = [[Blink1 alloc].textClipping */; };
+		587B6DF216961EBF00F7A4EC /* blink1-lib.c in Sources */ = {isa = PBXBuildFile; fileRef = 587B6DEA16961EBF00F7A4EC /* blink1-lib.c */; };
+		587B6DF316961EBF00F7A4EC /* Blink1.m in Sources */ = {isa = PBXBuildFile; fileRef = 587B6DED16961EBF00F7A4EC /* Blink1.m */; };
+		587B6DF416961EBF00F7A4EC /* hid.c in Sources */ = {isa = PBXBuildFile; fileRef = 587B6DEE16961EBF00F7A4EC /* hid.c */; };
+		587B6DFB16961F7E00F7A4EC /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 587B6DFA16961F7E00F7A4EC /* IOKit.framework */; };
 		5881335D162B3B7800A1487D /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 5881324D162B3B7600A1487D /* GCDAsyncSocket.m */; };
 		5881335E162B3B7800A1487D /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 5881324F162B3B7600A1487D /* GCDAsyncUdpSocket.m */; };
 		588133D9162B3B9B00A1487D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 588133D8162B3B9B00A1487D /* Security.framework */; };
@@ -35,12 +42,25 @@
 		05662B7B16275A8300C34B08 /* SvrBowAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SvrBowAppDelegate.m; sourceTree = "<group>"; };
 		057D1348162C5C7B0079B517 /* SvrBowWFHMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SvrBowWFHMenu.h; sourceTree = "<group>"; };
 		057D1349162C5C7B0079B517 /* SvrBowWFHMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SvrBowWFHMenu.m; sourceTree = "<group>"; };
+		582391D51696636700A4D3D8 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		582391D61696636700A4D3D8 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		582391DA1696638C00A4D3D8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		587B6DE916961EBF00F7A4EC /* blink1 = [[Blink1 alloc].textClipping */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "blink1 = [[Blink1 alloc].textClipping"; sourceTree = "<group>"; };
+		587B6DEA16961EBF00F7A4EC /* blink1-lib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "blink1-lib.c"; sourceTree = "<group>"; };
+		587B6DEB16961EBF00F7A4EC /* blink1-lib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "blink1-lib.h"; sourceTree = "<group>"; };
+		587B6DEC16961EBF00F7A4EC /* Blink1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blink1.h; sourceTree = "<group>"; };
+		587B6DED16961EBF00F7A4EC /* Blink1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Blink1.m; sourceTree = "<group>"; };
+		587B6DEE16961EBF00F7A4EC /* hid.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hid.c; sourceTree = "<group>"; };
+		587B6DEF16961EBF00F7A4EC /* hidapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hidapi.h; sourceTree = "<group>"; };
+		587B6DF016961EBF00F7A4EC /* usbconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = usbconfig.h; sourceTree = "<group>"; };
+		587B6DFA16961F7E00F7A4EC /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/IOKit.framework; sourceTree = DEVELOPER_DIR; };
 		5881324B162B3B7600A1487D /* Documentation.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Documentation.html; sourceTree = "<group>"; };
 		5881324C162B3B7600A1487D /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
 		5881324D162B3B7600A1487D /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
 		5881324E162B3B7600A1487D /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
 		5881324F162B3B7600A1487D /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
 		588133D8162B3B9B00A1487D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		589B575816319671009AD19E /* bwsricon.ai */ = {isa = PBXFileReference; lastKnownFileType = text; path = bwsricon.ai; sourceTree = "<group>"; };
 		58F6971F162BA2F2004F20CF /* SvrBowSourceServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SvrBowSourceServer.h; sourceTree = "<group>"; };
 		58F69720162BA2F2004F20CF /* SvrBowSourceServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SvrBowSourceServer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -50,6 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				582391DB1696638C00A4D3D8 /* SystemConfiguration.framework in Frameworks */,
+				587B6DFB16961F7E00F7A4EC /* IOKit.framework in Frameworks */,
 				588133D9162B3B9B00A1487D /* Security.framework in Frameworks */,
 				05662B6916275A8300C34B08 /* Cocoa.framework in Frameworks */,
 			);
@@ -62,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				05330549162DED3A0055D2C3 /* bwsr.iconset */,
+				589B575816319671009AD19E /* bwsricon.ai */,
 				05662B6E16275A8300C34B08 /* ServerBowser */,
 				05662B6716275A8300C34B08 /* Frameworks */,
 				05662B6516275A8300C34B08 /* Products */,
@@ -79,6 +102,8 @@
 		05662B6716275A8300C34B08 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				582391DA1696638C00A4D3D8 /* SystemConfiguration.framework */,
+				587B6DFA16961F7E00F7A4EC /* IOKit.framework */,
 				588133D8162B3B9B00A1487D /* Security.framework */,
 				05662B6A16275A8300C34B08 /* Other Frameworks */,
 			);
@@ -105,6 +130,8 @@
 				58F6971F162BA2F2004F20CF /* SvrBowSourceServer.h */,
 				58F69720162BA2F2004F20CF /* SvrBowSourceServer.m */,
 				0533053F162DB9590055D2C3 /* MainMenu.xib */,
+				582391D91696637400A4D3D8 /* Reachability */,
+				587B6DE816961EBF00F7A4EC /* blinklib */,
 				5881324A162B3B7600A1487D /* UdpSocket */,
 				05662B6F16275A8300C34B08 /* Supporting Files */,
 			);
@@ -120,6 +147,30 @@
 				05662B7616275A8300C34B08 /* ServerBowser-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		582391D91696637400A4D3D8 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				582391D51696636700A4D3D8 /* Reachability.h */,
+				582391D61696636700A4D3D8 /* Reachability.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
+		587B6DE816961EBF00F7A4EC /* blinklib */ = {
+			isa = PBXGroup;
+			children = (
+				587B6DE916961EBF00F7A4EC /* blink1 = [[Blink1 alloc].textClipping */,
+				587B6DEA16961EBF00F7A4EC /* blink1-lib.c */,
+				587B6DEB16961EBF00F7A4EC /* blink1-lib.h */,
+				587B6DEC16961EBF00F7A4EC /* Blink1.h */,
+				587B6DED16961EBF00F7A4EC /* Blink1.m */,
+				587B6DEE16961EBF00F7A4EC /* hid.c */,
+				587B6DEF16961EBF00F7A4EC /* hidapi.h */,
+				587B6DF016961EBF00F7A4EC /* usbconfig.h */,
+			);
+			path = blinklib;
 			sourceTree = "<group>";
 		};
 		5881324A162B3B7600A1487D /* UdpSocket */ = {
@@ -191,6 +242,7 @@
 				05662B7316275A8300C34B08 /* InfoPlist.strings in Resources */,
 				05330540162DB9590055D2C3 /* MainMenu.xib in Resources */,
 				0533054A162DED3A0055D2C3 /* bwsr.iconset in Resources */,
+				587B6DF116961EBF00F7A4EC /* blink1 = [[Blink1 alloc].textClipping in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +259,10 @@
 				5881335E162B3B7800A1487D /* GCDAsyncUdpSocket.m in Sources */,
 				58F69721162BA2F2004F20CF /* SvrBowSourceServer.m in Sources */,
 				057D134A162C5C7B0079B517 /* SvrBowWFHMenu.m in Sources */,
+				587B6DF216961EBF00F7A4EC /* blink1-lib.c in Sources */,
+				587B6DF316961EBF00F7A4EC /* Blink1.m in Sources */,
+				587B6DF416961EBF00F7A4EC /* hid.c in Sources */,
+				582391D71696636700A4D3D8 /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

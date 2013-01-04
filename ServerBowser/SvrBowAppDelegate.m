@@ -22,8 +22,47 @@
     [statusMenu setDelegate:(id <NSMenuDelegate> )self];
     [self setupMenu];
     lastRefresh=0;
+    
+    blink = [[Blink1 alloc] init];      // set up blink(1) library
+    [blink enumerate];
+    
     [self refresh];
     
+    reach = [Reachability reachabilityForInternetConnection];
+    [reach startNotifier];
+    
+    
+    [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self
+                                                           selector: @selector(didWake)
+                                                               name: NSWorkspaceDidWakeNotification object: NULL];
+    
+    [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self
+                                                           selector: @selector(didSleep)
+                                                               name: NSWorkspaceWillSleepNotification object: NULL];
+    
+    [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self
+                                                           selector: @selector(didWake)
+                                                               name: NSWorkspaceScreensDidWakeNotification object: NULL];
+    
+    [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self
+                                                           selector: @selector(didScreenSleep)
+                                                               name: NSWorkspaceScreensDidSleepNotification object: NULL];
+    
+    [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self
+                                                           selector: @selector(didUserActive)
+                                                               name: NSWorkspaceSessionDidBecomeActiveNotification object: NULL];
+    
+    [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self
+                                                           selector: @selector(didUserDeactive)
+                                                               name: NSWorkspaceSessionDidResignActiveNotification object: NULL];
+    
+    [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self
+                                                           selector: @selector(refresh)
+                                                               name: kReachabilityChangedNotification object: NULL];
+    
+    /*for (int i=0; i<[[[NSHost currentHost] addresses]count]; i++) {
+        NSLog([[[NSHost currentHost] addresses] objectAtIndex:i]);
+    }*/
 }
 
 -(void)doDefaults{
@@ -47,7 +86,7 @@
         wfhMenu.delegate=self;
     }
     if(!refresher) {
-        refresher =[[NSMenuItem alloc] initWithTitle:@"Refresh" action:@selector(refresh) keyEquivalent:@""];
+        refresher =[[NSMenuItem alloc] initWithTitle:@"Refresh" action:@selector(forceRefresh) keyEquivalent:@""];
     }
     if(!refreshRate){
         refreshRate=[[NSMenuItem alloc] initWithTitle:@"Refresh Rate" action:nil keyEquivalent:@""];
@@ -94,15 +133,26 @@
 }
 
 -(void)refresh {
-    //NSLog(@"refresh");
-    if(refreshTimer!=nil)
-        [refreshTimer invalidate];
-    [wfhMenu refresh];
+    [self cancelRefresh];
     long rate = [[NSUserDefaults standardUserDefaults] integerForKey:@"refreshRate"];
     refreshTimer = [NSTimer scheduledTimerWithTimeInterval:(60.0*rate) target:self selector: @selector(refresh) userInfo:nil repeats: NO];
-    
-    
     lastRefresh = [NSDate timeIntervalSinceReferenceDate];
+    
+    if(userDeactive || (screenAsleep && ![blink isHere]) )
+        return;
+    [wfhMenu refresh];
+}
+
+
+-(void)cancelRefresh {
+    if(refreshTimer!=nil)
+        [refreshTimer invalidate];
+}
+
+-(void)forceRefresh {
+    screenAsleep=false;
+    userDeactive=false;
+    [self refresh];
 }
 
 - (void)menuWillOpen:(NSMenu *)menu {
@@ -113,7 +163,41 @@
 
 }
 
+-(void)didWake {
+    NSLog(@"Wake");
+    screenAsleep=false;
+    [self enableBlink];
+    [self refresh];
+}
 
+-(void)didScreenSleep {
+    NSLog(@"Screensleep");
+    screenAsleep=true;
+    //if(![blink isHere])
+    //[self cancelRefresh];
+}
+
+-(void)didSleep {
+    NSLog(@"Sleep");
+    screenAsleep=true;
+    [blink off];
+    //if(![blink isHere])
+    //[self cancelRefresh];
+}
+
+-(void)didUserActive {
+    NSLog(@"UserActive");
+    userDeactive=false;
+    [self didWake];
+}
+
+-(void)didUserDeactive {
+    NSLog(@"Userdeactive");
+    userDeactive=true;
+    [blink off];
+    //[self cancelRefresh];
+    
+}
 
 -(void)updateRefresher
 {
@@ -126,16 +210,28 @@
 }
 
 -(void)setTitle:(NSString*)title {
+    [self enableBlink];
+    
     if(title!=nil)
         [statusItem setTitle:title];
     else
         [statusItem setTitle:@"..."];
 }
 
+-(void)enableBlink {
+    if(wfhMenu.value>0) {
+        [blink fadeToRGB:[NSColor colorWithCalibratedRed:1 green:0 blue:1 alpha:1] atTime:0];
+    }
+    else
+        [blink off];
+}
+
+- (void)applicationWillTerminate:(NSNotification *)aNotification {
+    [blink off];
+}
 
 -(void)quit
 {
-
     [NSApp terminate:nil];
 }
 

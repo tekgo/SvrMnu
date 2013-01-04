@@ -9,7 +9,7 @@
 #import "SvrBowWFHMenu.h"
 
 @implementation SvrBowWFHMenu
-@synthesize delegate;
+@synthesize delegate,value;
 -(id) init {
     
     if((self = [super init]))
@@ -34,7 +34,6 @@
                                if(!error)
                                {
                                NSError *err;
-                               
                                NSMutableDictionary *tempDict =[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&err];
                                
 
@@ -83,7 +82,10 @@
     {
         [self setTitle:@"WFH-Unable to connect"];
     }
-    
+    if(gameInfo!=nil)
+        value = numPlayers;
+    else
+        value = -1;
     [[self submenu] addItem:launcher];
 }
 
