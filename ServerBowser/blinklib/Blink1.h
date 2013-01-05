@@ -7,6 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#include <IOKit/usb/USBSpec.h>
+#include <IOKit/IOKitLib.h>
+#include <IOKit/IOCFPlugIn.h>
+#include <IOKit/usb/IOUSBLib.h>
+#include <IOKit/usb/USB.h>
 
 //typedef void (^UpdateHandler)(int someParameter);
 typedef void (^UpdateHandler)(NSColor* lastColor, float lastTime);
@@ -40,6 +45,7 @@ typedef void (^UpdateHandler)(NSColor* lastColor, float lastTime);
 //+ (NSString*) toHexColorString: (NSColor*)colr;
 + (NSString*) hexStringFromColor: (NSColor*)colr;
 
-
+- (void)matchingDevicesRemoved:(io_iterator_t)devices;
+- (void)matchingDevicesAdded:(io_iterator_t)devices;
 
 @end
