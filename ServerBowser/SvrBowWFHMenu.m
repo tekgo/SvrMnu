@@ -25,7 +25,35 @@
     return self;
 }
 
+- (NSString *)input: (NSString *)prompt defaultValue: (NSString *)defaultValue {
+    NSAlert *alert = [NSAlert alertWithMessageText: prompt
+                                     defaultButton:@"OK"
+                                   alternateButton:@"Cancel"
+                                       otherButton:nil
+                         informativeTextWithFormat:@""];
+    
+    NSTextField *input = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 350, 22)];
+    [input setStringValue:defaultValue];
+    [alert setAccessoryView:input];
+    //[input layout];
+    //[alert layout];
+    NSInteger button = [alert runModal];
+    if (button == NSAlertDefaultReturn) {
+        [input validateEditing];
+        return [input stringValue];
+    } else if (button == NSAlertAlternateReturn) {
+        return nil;
+    } else {
+        return nil;
+    }
+}
+
 -(void)refresh {
+    
+    
+    //[self input:@"Enter the Address of the server you want to add" defaultValue:@"butts"];
+    //return;
+    
             [self setTitle:@"WFH-Refreshing..."];
     [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://api.xxiivv.com/?key=wfh&cmd=read"]]
                                        queue:[NSOperationQueue mainQueue]
@@ -54,6 +82,8 @@
     [[self submenu] removeAllItems];
     numServers=0;
     numPlayers=0;
+        NSString *ip = [PortMapper findPublicAddress];
+    bool selfie=false;
     if(gameInfo!=nil)
     {
         numServers = [(NSString*)[gameInfo valueForKey:@"activegames"] intValue];
@@ -69,6 +99,8 @@
             {
                 numPlayers+=[(NSString*)[serverInfo valueForKey:@"players"] intValue];
                 NSString *title;
+                if([ip isEqualToString:[serverInfo valueForKey:@"ip"]])
+                    selfie=true;
                 if ([(NSString*)[serverInfo valueForKey:@"players"] intValue]==1) {
                     title=[NSString stringWithFormat:@"1 player on %@-%@", [serverInfo valueForKey:@"map"], [serverInfo valueForKey:@"ip"]];
                 }
@@ -82,8 +114,12 @@
     {
         [self setTitle:@"WFH-Unable to connect"];
     }
-    if(gameInfo!=nil)
+    if(gameInfo!=nil) {
+        
         value = numPlayers;
+        if(selfie)
+            value--;
+    }
     else
         value = -1;
     [[self submenu] addItem:launcher];
@@ -104,5 +140,7 @@
     //[[NSWorkspace sharedWorkspace] launchApplication:@"WaitingForHorus-osx"];
     [[NSWorkspace sharedWorkspace] launchAppWithBundleIdentifier:@"unity.Les Collégiennes.WFH" options:NSWorkspaceLaunchDefault additionalEventParamDescriptor:nil launchIdentifier:NULL];
 }
+
+
 
 @end

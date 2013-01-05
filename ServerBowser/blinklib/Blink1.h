@@ -12,6 +12,8 @@
 typedef void (^UpdateHandler)(NSColor* lastColor, float lastTime);
 
 @interface Blink1 : NSObject {
+    NSColor* currentColor;
+    float time;
 }
 
 @property (strong) NSMutableArray* serialnums;
@@ -25,6 +27,7 @@ typedef void (^UpdateHandler)(NSColor* lastColor, float lastTime);
 - (NSString*) regenerateBlink1Id;
 
 -(bool)isHere;
+-(void)setColor:(NSColor*)c;
 -(void)off;
 
 - (void) fadeToRGB:(NSColor*) c atTime:(float) t;

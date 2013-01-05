@@ -10,6 +10,7 @@
 #import "SvrBowWFHMenu.h"
 #import "Blink1.h"
 #import "Reachability.h"
+#import "SvrBowMCServer.h"
 
 
 @interface SvrBowAppDelegate : NSObject <NSApplicationDelegate> {
@@ -26,6 +27,7 @@
     bool userDeactive;
     Blink1 *blink;
     Reachability *reach;
+    SvrBowMCServer *test;
 
 }
 //@property (assign) IBOutlet NSWindow *window;

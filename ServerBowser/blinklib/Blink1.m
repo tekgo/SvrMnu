@@ -52,8 +52,26 @@
 }
 -(void)off
 {
-    [self fadeToRGB:[NSColor colorWithCalibratedRed:0 green:0 blue:0 alpha:1] atTime:0];
+    currentColor=[NSColor colorWithCalibratedRed:0 green:0 blue:0 alpha:1];
+    [self fadeToRGB:currentColor atTime:0];
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
 }
+
+-(void)setColor:(NSColor*)c {
+    currentColor=c;
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
+    [self startPulse];
+}
+-(void)startPulse {
+    [self fadeToRGB:currentColor atTime:1];
+    [self performSelector:@selector(endPulse) withObject:nil afterDelay:3];
+}
+-(void)endPulse {
+    [self fadeToRGB:[NSColor colorWithCalibratedRed:currentColor.redComponent*.1 green:currentColor.redComponent*.1 blue:currentColor.redComponent*.1 alpha:1] atTime:1];
+    [self performSelector:@selector(startPulse) withObject:nil afterDelay:1];
+}
+
+
 
 // Create a blink1_id (aka "IFTTT Key" and other names)
 // If no blink1 device is present, create a fake blink1_id with zerod serial

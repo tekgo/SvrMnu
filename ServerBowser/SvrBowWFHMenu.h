@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
+#import "PortMapper.h"
 @interface SvrBowWFHMenu : NSMenuItem
 {
     NSMenuItem *launcher;

@@ -8,7 +8,6 @@
 
 #import "SvrBowAppDelegate.h"
 
-
 @implementation SvrBowAppDelegate
 
 - (void)applicationWillFinishLaunching:(NSNotification *)aNotification
@@ -25,6 +24,9 @@
     
     blink = [[Blink1 alloc] init];      // set up blink(1) library
     [blink enumerate];
+    
+        //test = [[SvrBowMCServer alloc] init];
+    //return;
     
     [self refresh];
     
@@ -93,10 +95,12 @@
         [refreshRate setSubmenu:[[NSMenu alloc] initWithTitle:@""]];
         [[refreshRate submenu] addItemWithTitle:@"1m" action:@selector(changeRefreshRate:) keyEquivalent:@""];
         [[[refreshRate submenu] itemAtIndex:0] setTag:1];
+        [[refreshRate submenu] addItemWithTitle:@"2m" action:@selector(changeRefreshRate:) keyEquivalent:@""];
+        [[[refreshRate submenu] itemAtIndex:1] setTag:2];
         [[refreshRate submenu] addItemWithTitle:@"5m" action:@selector(changeRefreshRate:) keyEquivalent:@""];
-        [[[refreshRate submenu] itemAtIndex:1] setTag:5];
+        [[[refreshRate submenu] itemAtIndex:2] setTag:5];
         [[refreshRate submenu] addItemWithTitle:@"10m" action:@selector(changeRefreshRate:) keyEquivalent:@""];
-        [[[refreshRate submenu] itemAtIndex:2] setTag:10];
+        [[[refreshRate submenu] itemAtIndex:3] setTag:10];
         [self changeRefreshRate:nil];
         
     }
@@ -220,7 +224,10 @@
 
 -(void)enableBlink {
     if(wfhMenu.value>0) {
-        [blink fadeToRGB:[NSColor colorWithCalibratedRed:1 green:0 blue:1 alpha:1] atTime:0];
+        if(wfhMenu.value>1)
+            [blink setColor:[NSColor colorWithCalibratedRed:1 green:0 blue:1 alpha:1]];
+        else
+            [blink setColor:[NSColor colorWithCalibratedRed:.5 green:0 blue:.5 alpha:1]];
     }
     else
         [blink off];
