@@ -100,7 +100,7 @@
 			children = (
 				05330549162DED3A0055D2C3 /* bwsr.iconset */,
 				589B575816319671009AD19E /* bwsricon.ai */,
-				05662B6E16275A8300C34B08 /* ServerBowser */,
+				05662B6E16275A8300C34B08 /* SvrMnu */,
 				05662B6716275A8300C34B08 /* Frameworks */,
 				05662B6516275A8300C34B08 /* Products */,
 			);
@@ -136,7 +136,7 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		05662B6E16275A8300C34B08 /* ServerBowser */ = {
+		05662B6E16275A8300C34B08 /* SvrMnu */ = {
 			isa = PBXGroup;
 			children = (
 				05662B7A16275A8300C34B08 /* SvrMnuAppDelegate.h */,
@@ -159,7 +159,7 @@
 				5881324A162B3B7600A1487D /* GCDSockets */,
 				05662B6F16275A8300C34B08 /* Supporting Files */,
 			);
-			path = ServerBowser;
+			path = SvrMnu;
 			sourceTree = "<group>";
 		};
 		05662B6F16275A8300C34B08 /* Supporting Files */ = {
