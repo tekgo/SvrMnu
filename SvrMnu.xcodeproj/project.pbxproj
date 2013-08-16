@@ -8,33 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		05330540162DB9590055D2C3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0533053F162DB9590055D2C3 /* MainMenu.xib */; };
-		0533054A162DED3A0055D2C3 /* bwsr.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 05330549162DED3A0055D2C3 /* bwsr.iconset */; };
+		0533054A162DED3A0055D2C3 /* SvrMnu.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 05330549162DED3A0055D2C3 /* SvrMnu.iconset */; };
 		05662B6916275A8300C34B08 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05662B6816275A8300C34B08 /* Cocoa.framework */; };
 		05662B7316275A8300C34B08 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05662B7116275A8300C34B08 /* InfoPlist.strings */; };
 		05662B7516275A8300C34B08 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05662B7416275A8300C34B08 /* main.m */; };
 		05662B7C16275A8300C34B08 /* SvrMnuAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05662B7B16275A8300C34B08 /* SvrMnuAppDelegate.m */; };
 		057D134A162C5C7B0079B517 /* SvrMnuWFHMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 057D1349162C5C7B0079B517 /* SvrMnuWFHMenu.m */; };
-		580543EE1724E58C0010DACD /* urlWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 580543ED1724E58C0010DACD /* urlWindow.xib */; };
 		582391D71696636700A4D3D8 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 582391D61696636700A4D3D8 /* Reachability.m */; };
 		582391DB1696638C00A4D3D8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 582391DA1696638C00A4D3D8 /* SystemConfiguration.framework */; };
-		585C5FF7171DF6A900F4A49F /* SvrMnuMCMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 585C5FF6171DF6A900F4A49F /* SvrMnuMCMenu.m */; };
+		58270D3C17BE965300BB5623 /* SvrMnuMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 58270D3B17BE965300BB5623 /* SvrMnuMenu.m */; };
 		587B6DF216961EBF00F7A4EC /* blink1-lib.c in Sources */ = {isa = PBXBuildFile; fileRef = 587B6DEA16961EBF00F7A4EC /* blink1-lib.c */; };
 		587B6DF316961EBF00F7A4EC /* Blink1.m in Sources */ = {isa = PBXBuildFile; fileRef = 587B6DED16961EBF00F7A4EC /* Blink1.m */; };
 		587B6DF416961EBF00F7A4EC /* hid.c in Sources */ = {isa = PBXBuildFile; fileRef = 587B6DEE16961EBF00F7A4EC /* hid.c */; };
 		587B6DFB16961F7E00F7A4EC /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 587B6DFA16961F7E00F7A4EC /* IOKit.framework */; };
 		587D1EA2173B27C9001577C4 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 587D1EA1173B27C9001577C4 /* ApplicationServices.framework */; };
-		5881335D162B3B7800A1487D /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 5881324D162B3B7600A1487D /* GCDAsyncSocket.m */; };
-		5881335E162B3B7800A1487D /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 5881324F162B3B7600A1487D /* GCDAsyncUdpSocket.m */; };
 		588133D9162B3B9B00A1487D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 588133D8162B3B9B00A1487D /* Security.framework */; };
-		5889889E1708D0B80061E38E /* SvrMnuUnityServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5889889D1708D0B80061E38E /* SvrMnuUnityServer.m */; };
 		58B5155016980B330008D8CD /* PortMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B5154F16980B330008D8CD /* PortMapper.m */; };
-		58D247C3169794D000E7423B /* SvrMnuMCServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D247C2169794D000E7423B /* SvrMnuMCServer.m */; };
-		58F69721162BA2F2004F20CF /* SvrMnuSourceServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F69720162BA2F2004F20CF /* SvrMnuSourceServer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0533053F162DB9590055D2C3 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
-		05330549162DED3A0055D2C3 /* bwsr.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = bwsr.iconset; sourceTree = "<group>"; };
+		05330549162DED3A0055D2C3 /* SvrMnu.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = SvrMnu.iconset; sourceTree = "<group>"; };
 		05662B6416275A8300C34B08 /* SvrMnu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SvrMnu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05662B6816275A8300C34B08 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		05662B6B16275A8300C34B08 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -47,12 +41,11 @@
 		05662B7B16275A8300C34B08 /* SvrMnuAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SvrMnuAppDelegate.m; sourceTree = "<group>"; };
 		057D1348162C5C7B0079B517 /* SvrMnuWFHMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SvrMnuWFHMenu.h; sourceTree = "<group>"; };
 		057D1349162C5C7B0079B517 /* SvrMnuWFHMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SvrMnuWFHMenu.m; sourceTree = "<group>"; };
-		580543ED1724E58C0010DACD /* urlWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = urlWindow.xib; sourceTree = "<group>"; };
 		582391D51696636700A4D3D8 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		582391D61696636700A4D3D8 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		582391DA1696638C00A4D3D8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
-		585C5FF5171DF69D00F4A49F /* SvrMnuMCMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SvrMnuMCMenu.h; sourceTree = "<group>"; };
-		585C5FF6171DF6A900F4A49F /* SvrMnuMCMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SvrMnuMCMenu.m; sourceTree = "<group>"; };
+		58270D3A17BE964300BB5623 /* SvrMnuMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SvrMnuMenu.h; sourceTree = "<group>"; };
+		58270D3B17BE965300BB5623 /* SvrMnuMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SvrMnuMenu.m; sourceTree = "<group>"; };
 		587B6DEA16961EBF00F7A4EC /* blink1-lib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "blink1-lib.c"; sourceTree = "<group>"; };
 		587B6DEB16961EBF00F7A4EC /* blink1-lib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "blink1-lib.h"; sourceTree = "<group>"; };
 		587B6DEC16961EBF00F7A4EC /* Blink1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blink1.h; sourceTree = "<group>"; };
@@ -62,21 +55,10 @@
 		587B6DF016961EBF00F7A4EC /* usbconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = usbconfig.h; sourceTree = "<group>"; };
 		587B6DFA16961F7E00F7A4EC /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/IOKit.framework; sourceTree = DEVELOPER_DIR; };
 		587D1EA1173B27C9001577C4 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/ApplicationServices.framework; sourceTree = DEVELOPER_DIR; };
-		5881324B162B3B7600A1487D /* Documentation.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Documentation.html; sourceTree = "<group>"; };
-		5881324C162B3B7600A1487D /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
-		5881324D162B3B7600A1487D /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
-		5881324E162B3B7600A1487D /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
-		5881324F162B3B7600A1487D /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
 		588133D8162B3B9B00A1487D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		5889889C1708D0AF0061E38E /* SvrMnuUnityServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SvrMnuUnityServer.h; sourceTree = "<group>"; };
-		5889889D1708D0B80061E38E /* SvrMnuUnityServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SvrMnuUnityServer.m; sourceTree = "<group>"; };
-		589B575816319671009AD19E /* bwsricon.ai */ = {isa = PBXFileReference; lastKnownFileType = text; path = bwsricon.ai; sourceTree = "<group>"; };
+		589B575816319671009AD19E /* SvrMnuIcon.ai */ = {isa = PBXFileReference; lastKnownFileType = text; path = SvrMnuIcon.ai; sourceTree = "<group>"; };
 		58B5154E16980B330008D8CD /* PortMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortMapper.h; sourceTree = "<group>"; };
 		58B5154F16980B330008D8CD /* PortMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortMapper.m; sourceTree = "<group>"; };
-		58D247C0169794BB00E7423B /* SvrMnuMCServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SvrMnuMCServer.h; sourceTree = "<group>"; };
-		58D247C2169794D000E7423B /* SvrMnuMCServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SvrMnuMCServer.m; sourceTree = "<group>"; };
-		58F6971F162BA2F2004F20CF /* SvrMnuSourceServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SvrMnuSourceServer.h; sourceTree = "<group>"; };
-		58F69720162BA2F2004F20CF /* SvrMnuSourceServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SvrMnuSourceServer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +80,6 @@
 		05662B5916275A8300C34B08 = {
 			isa = PBXGroup;
 			children = (
-				05330549162DED3A0055D2C3 /* bwsr.iconset */,
-				589B575816319671009AD19E /* bwsricon.ai */,
 				05662B6E16275A8300C34B08 /* SvrMnu */,
 				05662B6716275A8300C34B08 /* Frameworks */,
 				05662B6516275A8300C34B08 /* Products */,
@@ -117,23 +97,15 @@
 		05662B6716275A8300C34B08 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				05662B6816275A8300C34B08 /* Cocoa.framework */,
+				05662B6B16275A8300C34B08 /* AppKit.framework */,
+				05662B6D16275A8300C34B08 /* Foundation.framework */,
 				587D1EA1173B27C9001577C4 /* ApplicationServices.framework */,
 				582391DA1696638C00A4D3D8 /* SystemConfiguration.framework */,
 				587B6DFA16961F7E00F7A4EC /* IOKit.framework */,
 				588133D8162B3B9B00A1487D /* Security.framework */,
-				05662B6A16275A8300C34B08 /* Other Frameworks */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		05662B6A16275A8300C34B08 /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				05662B6816275A8300C34B08 /* Cocoa.framework */,
-				05662B6B16275A8300C34B08 /* AppKit.framework */,
-				05662B6D16275A8300C34B08 /* Foundation.framework */,
-			);
-			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
 		05662B6E16275A8300C34B08 /* SvrMnu */ = {
@@ -141,22 +113,13 @@
 			children = (
 				05662B7A16275A8300C34B08 /* SvrMnuAppDelegate.h */,
 				05662B7B16275A8300C34B08 /* SvrMnuAppDelegate.m */,
-				580543ED1724E58C0010DACD /* urlWindow.xib */,
 				057D1348162C5C7B0079B517 /* SvrMnuWFHMenu.h */,
 				057D1349162C5C7B0079B517 /* SvrMnuWFHMenu.m */,
-				585C5FF5171DF69D00F4A49F /* SvrMnuMCMenu.h */,
-				585C5FF6171DF6A900F4A49F /* SvrMnuMCMenu.m */,
-				58F6971F162BA2F2004F20CF /* SvrMnuSourceServer.h */,
-				58F69720162BA2F2004F20CF /* SvrMnuSourceServer.m */,
-				5889889C1708D0AF0061E38E /* SvrMnuUnityServer.h */,
-				5889889D1708D0B80061E38E /* SvrMnuUnityServer.m */,
-				58D247C0169794BB00E7423B /* SvrMnuMCServer.h */,
-				58D247C2169794D000E7423B /* SvrMnuMCServer.m */,
+				58270D3A17BE964300BB5623 /* SvrMnuMenu.h */,
+				58270D3B17BE965300BB5623 /* SvrMnuMenu.m */,
 				0533053F162DB9590055D2C3 /* MainMenu.xib */,
-				58B5154D16980B330008D8CD /* PortMapper */,
-				582391D91696637400A4D3D8 /* Reachability */,
-				587B6DE816961EBF00F7A4EC /* blinklib */,
-				5881324A162B3B7600A1487D /* GCDSockets */,
+				58270D3E17BEAB4500BB5623 /* Icon */,
+				58270D3D17BEA7AC00BB5623 /* Supporting Libs */,
 				05662B6F16275A8300C34B08 /* Supporting Files */,
 			);
 			path = SvrMnu;
@@ -182,6 +145,26 @@
 			name = Reachability;
 			sourceTree = "<group>";
 		};
+		58270D3D17BEA7AC00BB5623 /* Supporting Libs */ = {
+			isa = PBXGroup;
+			children = (
+				58B5154D16980B330008D8CD /* PortMapper */,
+				582391D91696637400A4D3D8 /* Reachability */,
+				587B6DE816961EBF00F7A4EC /* blinklib */,
+			);
+			name = "Supporting Libs";
+			sourceTree = "<group>";
+		};
+		58270D3E17BEAB4500BB5623 /* Icon */ = {
+			isa = PBXGroup;
+			children = (
+				05330549162DED3A0055D2C3 /* SvrMnu.iconset */,
+				589B575816319671009AD19E /* SvrMnuIcon.ai */,
+			);
+			name = Icon;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		587B6DE816961EBF00F7A4EC /* blinklib */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,19 +177,6 @@
 				587B6DF016961EBF00F7A4EC /* usbconfig.h */,
 			);
 			path = blinklib;
-			sourceTree = "<group>";
-		};
-		5881324A162B3B7600A1487D /* GCDSockets */ = {
-			isa = PBXGroup;
-			children = (
-				5881324B162B3B7600A1487D /* Documentation.html */,
-				5881324C162B3B7600A1487D /* GCDAsyncSocket.h */,
-				5881324D162B3B7600A1487D /* GCDAsyncSocket.m */,
-				5881324E162B3B7600A1487D /* GCDAsyncUdpSocket.h */,
-				5881324F162B3B7600A1487D /* GCDAsyncUdpSocket.m */,
-			);
-			name = GCDSockets;
-			path = GCD;
 			sourceTree = "<group>";
 		};
 		58B5154D16980B330008D8CD /* PortMapper */ = {
@@ -273,8 +243,7 @@
 			files = (
 				05662B7316275A8300C34B08 /* InfoPlist.strings in Resources */,
 				05330540162DB9590055D2C3 /* MainMenu.xib in Resources */,
-				0533054A162DED3A0055D2C3 /* bwsr.iconset in Resources */,
-				580543EE1724E58C0010DACD /* urlWindow.xib in Resources */,
+				0533054A162DED3A0055D2C3 /* SvrMnu.iconset in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,18 +256,13 @@
 			files = (
 				05662B7516275A8300C34B08 /* main.m in Sources */,
 				05662B7C16275A8300C34B08 /* SvrMnuAppDelegate.m in Sources */,
-				5881335D162B3B7800A1487D /* GCDAsyncSocket.m in Sources */,
-				5881335E162B3B7800A1487D /* GCDAsyncUdpSocket.m in Sources */,
-				58F69721162BA2F2004F20CF /* SvrMnuSourceServer.m in Sources */,
 				057D134A162C5C7B0079B517 /* SvrMnuWFHMenu.m in Sources */,
 				587B6DF216961EBF00F7A4EC /* blink1-lib.c in Sources */,
 				587B6DF316961EBF00F7A4EC /* Blink1.m in Sources */,
 				587B6DF416961EBF00F7A4EC /* hid.c in Sources */,
 				582391D71696636700A4D3D8 /* Reachability.m in Sources */,
-				58D247C3169794D000E7423B /* SvrMnuMCServer.m in Sources */,
 				58B5155016980B330008D8CD /* PortMapper.m in Sources */,
-				5889889E1708D0B80061E38E /* SvrMnuUnityServer.m in Sources */,
-				585C5FF7171DF6A900F4A49F /* SvrMnuMCMenu.m in Sources */,
+				58270D3C17BE965300BB5623 /* SvrMnuMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,7 +304,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -364,7 +328,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -375,8 +339,8 @@
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ServerBowser/SvrMnu-Prefix.pch";
-				INFOPLIST_FILE = "ServerBowser/SvrMnu-Info.plist";
+				GCC_PREFIX_HEADER = "SvrMnu/SvrMnu-Prefix.pch";
+				INFOPLIST_FILE = "SvrMnu/SvrMnu-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.7;
@@ -390,8 +354,8 @@
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ServerBowser/SvrMnu-Prefix.pch";
-				INFOPLIST_FILE = "ServerBowser/SvrMnu-Info.plist";
+				GCC_PREFIX_HEADER = "SvrMnu/SvrMnu-Prefix.pch";
+				INFOPLIST_FILE = "SvrMnu/SvrMnu-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.7;

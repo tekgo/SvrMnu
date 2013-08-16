@@ -2,7 +2,7 @@
 //  SvrMnuWFHMenu.m
 //  SvrMnu
 //
-//  Created by Codemonkey on 10/15/12.
+//  Created by Tekgo on 10/15/12.
 //  Copyright (c) 2012 Super Party Awesome. All rights reserved.
 //
 
@@ -11,50 +11,25 @@
 #import <ApplicationServices/ApplicationServices.h>
 
 @implementation SvrMnuWFHMenu
-@synthesize delegate,value;
 -(id) init {
     
     if((self = [super init]))
 	{
+        appBundleID = @"unity.Les Collégiennes.WFH";
         [self setTitle:@"Waiting For Horus"];
         [self setSubmenu:[NSMenu alloc]];
-        launcher = [[NSMenuItem alloc] initWithTitle:@"Launch WFH" action:@selector(launchWFH) keyEquivalent:@""];
+        launcher = [[NSMenuItem alloc] initWithTitle:@"Launch WFH" action:@selector(launch) keyEquivalent:@""];
         [launcher setTarget:self];
         [self makeMenus];
-        //[self refresh];
 
     }
     return self;
 }
 
-- (NSString *)input: (NSString *)prompt defaultValue: (NSString *)defaultValue {
-    NSAlert *alert = [NSAlert alertWithMessageText: prompt
-                                     defaultButton:@"OK"
-                                   alternateButton:@"Cancel"
-                                       otherButton:nil
-                         informativeTextWithFormat:@""];
-    
-    NSTextField *input = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 350, 22)];
-    [input setStringValue:defaultValue];
-    [alert setAccessoryView:input];
-    //[input layout];
-    //[alert layout];
-    NSInteger button = [alert runModal];
-    if (button == NSAlertDefaultReturn) {
-        [input validateEditing];
-        return [input stringValue];
-    } else if (button == NSAlertAlternateReturn) {
-        return nil;
-    } else {
-        return nil;
-    }
-}
 
 -(void)refresh {
+    [super refresh];
     
-    
-    //[self input:@"Enter the Address of the server you want to add" defaultValue:@"butts"];
-    //return;
     
             [self setTitle:@"WFH-Refreshing..."];
     [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://api.xxiivv.com/?key=wfh&cmd=read"]]
@@ -76,7 +51,6 @@
                                }
                                [self performSelectorInBackground:@selector(makeMenus) withObject:nil];
 
-                               //NSLog(responseString);
                                     }];
 }
 
@@ -88,8 +62,10 @@
     bool selfie=false;
     if(gameInfo!=nil)
     {
-        //NSString *ip = @"";
-        //if([[Reachability reachabilityForInternetConnection] currentReachabilityStatus]!=0)
+        if([gameInfo valueForKey:@"message"] && [[gameInfo valueForKey:@"message"] isKindOfClass:[NSString class]]) {
+            NSString* message = [NSString stringWithFormat:@"MOTD: %@",(NSString*)[gameInfo valueForKey:@"message"]];
+            [[self submenu] addItemWithTitle:message action:nil keyEquivalent:@""];
+        }
            NSString *ip = [PortMapper findPublicAddress];
         numServers = [(NSString*)[gameInfo valueForKey:@"activegames"] intValue];
         if(numServers==0)
@@ -117,62 +93,23 @@
     }
     if(gameInfo!=nil) {
         
-        value = numPlayers;
+        self.value = numPlayers;
         if(selfie)
-            value--;
+            self.value--;
     }
     else
-        value = -1;
+        self.value = -1;
     [self setTitle:titleString];
     [self updateDelegate];
     [[launcher menu] removeItem:launcher];
-    if([self doesAppExist:@"unity.Les Collégiennes.WFH"])
+    if([self doesAppExist:appBundleID])
     [[self submenu] addItem:launcher];
 }
 
--(void) updateDelegate{
-    if(delegate!=nil && [delegate respondsToSelector:@selector(setTitle:)])
-    {
-        if(gameInfo!=nil){
-            [delegate setTitle:[NSString stringWithFormat:@"%d",numPlayers]];
-        }
-        else
-            [delegate setTitle:nil];
-    }
+
+-(void)launch {
+    [super launch];
+    [[NSWorkspace sharedWorkspace] launchAppWithBundleIdentifier:appBundleID options:NSWorkspaceLaunchDefault additionalEventParamDescriptor:nil launchIdentifier:NULL];
 }
 
--(void)launchWFH {
-    //[[NSWorkspace sharedWorkspace] launchApplication:@"WaitingForHorus-osx"];
-    [[NSWorkspace sharedWorkspace] launchAppWithBundleIdentifier:@"unity.Les Collégiennes.WFH" options:NSWorkspaceLaunchDefault additionalEventParamDescriptor:nil launchIdentifier:NULL];
-}
-
--(BOOL)doesAppExist:(NSString*)bundleID {
-    BOOL res = false;
-    CFURLRef appURL = NULL;
-    OSStatus result = LSFindApplicationForInfo (
-                                                kLSUnknownCreator,         //creator codes are dead, so we don't care about it
-                                                (__bridge CFStringRef)bundleID, //you can use the bundle ID here
-                                                NULL,                      //or the name of the app here (CFSTR("Safari.app"))
-                                                NULL,                      //this is used if you want an FSRef rather than a CFURLRef
-                                                &appURL
-                                                );
-    switch(result)
-    {
-        case noErr:
-            res=true;
-            break;
-        case kLSApplicationNotFoundErr:
-            res=false;
-            break;
-        default:
-            res=false;
-            break;
-    }
-
-    //the CFURLRef returned from the function is retained as per the docs so we must release it
-    if(appURL)
-    CFRelease(appURL);
-    
-    return res;
-}
 @end

@@ -2,12 +2,11 @@
 //  SvrMnuAppDelegate.m
 //  SvrMnu
 //
-//  Created by Codemonkey on 10/11/12.
+//  Created by Tekgo on 10/11/12.
 //  Copyright (c) 2012 Super Party Awesome. All rights reserved.
 //
 
 #import "SvrMnuAppDelegate.h"
-#import "SvrMnuUnityServer.h"
 
 @implementation SvrMnuAppDelegate
 
@@ -25,9 +24,7 @@
     
     blink = [[Blink1 alloc] init];      // set up blink(1) library
     [blink enumerate];
-    
-    //test = [[SvrMnuMCServer alloc] init];
-    //return;
+
     
     [self refresh];
     
@@ -63,9 +60,7 @@
                                                            selector: @selector(refresh)
                                                                name: kReachabilityChangedNotification object: NULL];
     
-    /*for (int i=0; i<[[[NSHost currentHost] addresses]count]; i++) {
-        NSLog([[[NSHost currentHost] addresses] objectAtIndex:i]);
-    }*/
+
 }
 
 -(void)doDefaults{
@@ -86,12 +81,10 @@
 
     if(!wfhMenu) {
         wfhMenu=[[SvrMnuWFHMenu alloc] init];
-        //wfhMenu=[[SvrMnuMCMenu alloc] init];
         wfhMenu.delegate=self;
     }
     if(!refresher) {
         refresher =[[NSMenuItem alloc] initWithTitle:@"Refresh" action:@selector(forceRefresh) keyEquivalent:@""];
-        //refresher =[[NSMenuItem alloc] initWithTitle:@"Refresh" action:@selector(alert) keyEquivalent:@""];
 
     }
     if(!refreshRate){
@@ -111,7 +104,6 @@
     [statusMenu addItem:wfhMenu];
     [statusMenu addItem:refresher];
     [statusMenu addItem:refreshRate];
-    [statusMenu addItemWithTitle:@"butts" action:@selector(alert) keyEquivalent:@""];
     [statusMenu addItemWithTitle:@"Quit" action:@selector(quit) keyEquivalent:@""];
     
 }
@@ -142,8 +134,6 @@
 }
 
 -(void)refresh {
-    //SvrMnuUnityServer* testU = [[SvrMnuUnityServer alloc] init];
-    //return;
     [self cancelRefresh];
     long rate = [[NSUserDefaults standardUserDefaults] integerForKey:@"refreshRate"];
     refreshTimer = [NSTimer scheduledTimerWithTimeInterval:(60.0*rate) target:self selector: @selector(refresh) userInfo:nil repeats: NO];
@@ -251,57 +241,6 @@
     [NSApp terminate:nil];
 }
 
-
--(void)alert {
-    windowC = [[NSWindowController alloc] initWithWindowNibName:@"urlWindow"];
-    
-    
-    //[windowC showWindow:nil];
-    
-    [windowC.window makeKeyAndOrderFront:nil];
-    [[NSRunningApplication currentApplication] activateWithOptions:(NSApplicationActivateAllWindows | NSApplicationActivateIgnoringOtherApps)];
-    //[windowC.window makeMainWindow];
-    //[windowC.window setLevel:NSPopUpMenuWindowLevel];
-    //[windowC.window close];
-    //[[NSRunningApplication currentApplication] activateWithOptions:(NSApplicationActivateAllWindows | NSApplicationActivateIgnoringOtherApps)];
-    //[NSApp runModalForWindow:windowC.window];
-    //[NSApp beginSheet:windowC.window modalForWindow:nil modalDelegate:nil didEndSelector:nil contextInfo:nil];
-    
-    //[NSApp runModalForWindow:windowC.window];
-    //[windowC showWindow:nil];
-    //[windowC.window makeMainWindow];
-    
-    /*NSAlert *alert = [[NSAlert alloc] init];
-    [alert setMessageText:@"Hi there."];
-    [alert addButtonWithTitle:@"Submit"];
-    [alert addButtonWithTitle:@"Cancel"];
-    //[alert setDelegate:self];
-    NSTextField *input = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 200, 24)];
-    [input setStringValue:@"127.0.0.1"];
-    [alert setAccessoryView:input];
-        [input sizeToFit];
-    [input setFrameSize:NSMakeSize(400, input.frame.size.height)];
-    [alert layout];
-    [alert beginSheetModalForWindow:nil
-                      modalDelegate:self
-                     didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:)
-                        contextInfo:nil];*/
-}
-
-- (void) alertDidEnd:(NSAlert *)a returnCode:(NSInteger)rc contextInfo:(void *)ci {
-    switch(rc) {
-        case NSAlertFirstButtonReturn:
-            // "First" pressed
-            NSLog([((NSTextField*)a.accessoryView) stringValue]);
-            NSLog(@"first");
-            break;
-        case NSAlertSecondButtonReturn:
-            // "Second" pressed
-            NSLog(@"second");
-            break;
-            // ...
-    }
-}
 
 
 

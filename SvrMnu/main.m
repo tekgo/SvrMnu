@@ -2,7 +2,7 @@
 //  main.m
 //  SvrMnu
 //
-//  Created by Codemonkey on 10/11/12.
+//  Created by Tekgo on 10/11/12.
 //  Copyright (c) 2012 Super Party Awesome. All rights reserved.
 //
 
