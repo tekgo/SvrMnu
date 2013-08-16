@@ -26,6 +26,9 @@
     Blink1 *blink;
     Reachability *reach;
     NSWindowController *windowC;
+    
+    NSTimer *updateTimer;
+    
 
 }
 -(void)setupMenu;

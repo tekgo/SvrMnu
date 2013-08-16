@@ -122,23 +122,21 @@
     }
     if(sender!=nil)
     {
-        float timeSince = [NSDate timeIntervalSinceReferenceDate]-lastRefresh;
-        if(timeSince>(rate*60))
-            [self refresh];
-        else {
-            [refreshTimer invalidate];
-            refreshTimer = [NSTimer scheduledTimerWithTimeInterval:((60.0*rate)-floor(timeSince)) target:self selector: @selector(refresh) userInfo:nil repeats: NO];
-        }
+        [self addTimer];
     }
     
 }
 
 -(void)refresh {
+    [[NSRunLoop mainRunLoop] performSelector:@selector(_refresh) target:self argument:nil order:0 modes:[NSArray arrayWithObject:NSRunLoopCommonModes]];
+}
+
+-(void)_refresh {
     [self cancelRefresh];
-    long rate = [[NSUserDefaults standardUserDefaults] integerForKey:@"refreshRate"];
-    refreshTimer = [NSTimer scheduledTimerWithTimeInterval:(60.0*rate) target:self selector: @selector(refresh) userInfo:nil repeats: NO];
-    lastRefresh = [NSDate timeIntervalSinceReferenceDate];
     
+    
+    lastRefresh = [NSDate timeIntervalSinceReferenceDate];
+    [self addTimer];
     if(userDeactive || (screenAsleep && ![blink isHere]) )
         return;
     [wfhMenu refresh];
@@ -158,10 +156,30 @@
 
 - (void)menuWillOpen:(NSMenu *)menu {
     [self updateRefresher];
+    
+    updateTimer = [NSTimer timerWithTimeInterval:0.5
+                                             target:self
+                                           selector:@selector(updateRefresher)
+                                           userInfo:nil
+                                            repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:updateTimer forMode:NSRunLoopCommonModes];
+    
 }
 
 - (void)menuDidClose:(NSMenu *)menu {
+    [updateTimer invalidate];
+}
 
+-(void)addTimer {
+    long rate = [[NSUserDefaults standardUserDefaults] integerForKey:@"refreshRate"];
+    float timeSince = [NSDate timeIntervalSinceReferenceDate]-lastRefresh;
+    if(timeSince>(rate*60))
+        [self refresh];
+    else {
+        [refreshTimer invalidate];
+        refreshTimer = [NSTimer scheduledTimerWithTimeInterval:((60.0*rate)-floor(timeSince)) target:self selector: @selector(refresh) userInfo:nil repeats: NO];
+        [[NSRunLoop mainRunLoop] addTimer:refreshTimer forMode:NSRunLoopCommonModes];
+    }
 }
 
 -(void)didWake {
@@ -212,11 +230,16 @@
 
 -(void)setTitle:(NSString*)title {
     [self enableBlink];
+    if(title!=statusItem.title) {
+        if(title!=nil)
+            [statusItem setTitle:title];
+        else
+            [statusItem setTitle:@"..."];
+    }
+}
+
+-(void)_setTitle:(NSString*)title {
     
-    if(title!=nil)
-        [statusItem setTitle:title];
-    else
-        [statusItem setTitle:@"..."];
 }
 
 -(void)enableBlink {
