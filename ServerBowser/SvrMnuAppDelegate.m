@@ -1,14 +1,15 @@
 //
-//  SvrBowAppDelegate.m
-//  ServerBowser
+//  SvrMnuAppDelegate.m
+//  SvrMnu
 //
 //  Created by Codemonkey on 10/11/12.
 //  Copyright (c) 2012 Super Party Awesome. All rights reserved.
 //
 
-#import "SvrBowAppDelegate.h"
+#import "SvrMnuAppDelegate.h"
+#import "SvrMnuUnityServer.h"
 
-@implementation SvrBowAppDelegate
+@implementation SvrMnuAppDelegate
 
 - (void)applicationWillFinishLaunching:(NSNotification *)aNotification
 {
@@ -25,7 +26,7 @@
     blink = [[Blink1 alloc] init];      // set up blink(1) library
     [blink enumerate];
     
-        //test = [[SvrBowMCServer alloc] init];
+    //test = [[SvrMnuMCServer alloc] init];
     //return;
     
     [self refresh];
@@ -84,11 +85,14 @@
     [statusMenu removeAllItems];
 
     if(!wfhMenu) {
-        wfhMenu=[[SvrBowWFHMenu alloc] init];
+        wfhMenu=[[SvrMnuWFHMenu alloc] init];
+        //wfhMenu=[[SvrMnuMCMenu alloc] init];
         wfhMenu.delegate=self;
     }
     if(!refresher) {
         refresher =[[NSMenuItem alloc] initWithTitle:@"Refresh" action:@selector(forceRefresh) keyEquivalent:@""];
+        //refresher =[[NSMenuItem alloc] initWithTitle:@"Refresh" action:@selector(alert) keyEquivalent:@""];
+
     }
     if(!refreshRate){
         refreshRate=[[NSMenuItem alloc] initWithTitle:@"Refresh Rate" action:nil keyEquivalent:@""];
@@ -107,6 +111,7 @@
     [statusMenu addItem:wfhMenu];
     [statusMenu addItem:refresher];
     [statusMenu addItem:refreshRate];
+    [statusMenu addItemWithTitle:@"butts" action:@selector(alert) keyEquivalent:@""];
     [statusMenu addItemWithTitle:@"Quit" action:@selector(quit) keyEquivalent:@""];
     
 }
@@ -137,6 +142,8 @@
 }
 
 -(void)refresh {
+    //SvrMnuUnityServer* testU = [[SvrMnuUnityServer alloc] init];
+    //return;
     [self cancelRefresh];
     long rate = [[NSUserDefaults standardUserDefaults] integerForKey:@"refreshRate"];
     refreshTimer = [NSTimer scheduledTimerWithTimeInterval:(60.0*rate) target:self selector: @selector(refresh) userInfo:nil repeats: NO];
@@ -225,12 +232,14 @@
 -(void)enableBlink {
     if(wfhMenu.value>0) {
         if(wfhMenu.value>1)
-            [blink setColor:[NSColor colorWithCalibratedRed:1 green:0 blue:1 alpha:1]];
+            [blink setPulse:[NSColor colorWithCalibratedRed:1 green:0 blue:1 alpha:1]];
         else
-            [blink setColor:[NSColor colorWithCalibratedRed:.5 green:0 blue:.5 alpha:1]];
+            [blink setPulse:[NSColor colorWithCalibratedRed:1 green:1 blue:0 alpha:1]];
     }
     else
         [blink off];
+    if(wfhMenu.value<0)
+        [blink setColor:[NSColor redColor]];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -243,7 +252,56 @@
 }
 
 
+-(void)alert {
+    windowC = [[NSWindowController alloc] initWithWindowNibName:@"urlWindow"];
+    
+    
+    //[windowC showWindow:nil];
+    
+    [windowC.window makeKeyAndOrderFront:nil];
+    [[NSRunningApplication currentApplication] activateWithOptions:(NSApplicationActivateAllWindows | NSApplicationActivateIgnoringOtherApps)];
+    //[windowC.window makeMainWindow];
+    //[windowC.window setLevel:NSPopUpMenuWindowLevel];
+    //[windowC.window close];
+    //[[NSRunningApplication currentApplication] activateWithOptions:(NSApplicationActivateAllWindows | NSApplicationActivateIgnoringOtherApps)];
+    //[NSApp runModalForWindow:windowC.window];
+    //[NSApp beginSheet:windowC.window modalForWindow:nil modalDelegate:nil didEndSelector:nil contextInfo:nil];
+    
+    //[NSApp runModalForWindow:windowC.window];
+    //[windowC showWindow:nil];
+    //[windowC.window makeMainWindow];
+    
+    /*NSAlert *alert = [[NSAlert alloc] init];
+    [alert setMessageText:@"Hi there."];
+    [alert addButtonWithTitle:@"Submit"];
+    [alert addButtonWithTitle:@"Cancel"];
+    //[alert setDelegate:self];
+    NSTextField *input = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 200, 24)];
+    [input setStringValue:@"127.0.0.1"];
+    [alert setAccessoryView:input];
+        [input sizeToFit];
+    [input setFrameSize:NSMakeSize(400, input.frame.size.height)];
+    [alert layout];
+    [alert beginSheetModalForWindow:nil
+                      modalDelegate:self
+                     didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:)
+                        contextInfo:nil];*/
+}
 
+- (void) alertDidEnd:(NSAlert *)a returnCode:(NSInteger)rc contextInfo:(void *)ci {
+    switch(rc) {
+        case NSAlertFirstButtonReturn:
+            // "First" pressed
+            NSLog([((NSTextField*)a.accessoryView) stringValue]);
+            NSLog(@"first");
+            break;
+        case NSAlertSecondButtonReturn:
+            // "Second" pressed
+            NSLog(@"second");
+            break;
+            // ...
+    }
+}
 
 
 

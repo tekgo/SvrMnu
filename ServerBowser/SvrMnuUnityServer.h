@@ -1,6 +1,6 @@
 //
-//  SvrBowSourceServer.h
-//  ServerBowser
+//  SvrMnuSourceServer.h
+//  SvrMnu
 //
 //  Created by Patrick Winchell on 10/14/12.
 //  Copyright (c) 2012 Super Party Awesome. All rights reserved.
@@ -25,7 +25,7 @@ typedef struct
 	char password;
 	char secure;
 	char game_version[32];
-}SSQ_INFO_REPLY,*PSSQ_INFO_REPLY;
+}UnityReply;
 
 static inline void readString(NSData *data,int *index,char* buffer)
 {
@@ -42,13 +42,13 @@ static inline void readString(NSData *data,int *index,char* buffer)
     
 }
 
-@interface SvrBowSourceServer : NSObject {
+@interface SvrMnuUnityServer : NSObject {
         GCDAsyncUdpSocket *udpSocket;
-    SSQ_INFO_REPLY serverInfo;
+    UnityReply serverInfo;
     
 }
 
-@property (nonatomic) SSQ_INFO_REPLY serverInfo;
+@property (nonatomic) UnityReply serverInfo;
 
 
 @end

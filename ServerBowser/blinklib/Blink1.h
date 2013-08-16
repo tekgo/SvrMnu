@@ -18,6 +18,7 @@ typedef void (^UpdateHandler)(NSColor* lastColor, float lastTime);
 
 @interface Blink1 : NSObject {
     NSColor* currentColor;
+    NSTimer* timer;
     float time;
 }
 
@@ -33,6 +34,7 @@ typedef void (^UpdateHandler)(NSColor* lastColor, float lastTime);
 
 -(bool)isHere;
 -(void)setColor:(NSColor*)c;
+-(void)setPulse:(NSColor*)c;
 -(void)off;
 
 - (void) fadeToRGB:(NSColor*) c atTime:(float) t;

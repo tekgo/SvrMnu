@@ -25,6 +25,7 @@
     serialnums = [[NSMutableArray alloc] init];
     [self startNotes];
     [self enumerate];
+    timer = [[NSTimer alloc] init];
     return self;
 }
 
@@ -53,23 +54,36 @@
 }
 -(void)off
 {
-    currentColor=[NSColor colorWithCalibratedRed:0 green:0 blue:0 alpha:1];
-    [self fadeToRGB:currentColor atTime:0];
-    [NSObject cancelPreviousPerformRequestsWithTarget:self];
+    [self setColor:[NSColor colorWithCalibratedRed:0 green:0 blue:0 alpha:1]];
 }
 
 -(void)setColor:(NSColor*)c {
     currentColor=c;
-    [NSObject cancelPreviousPerformRequestsWithTarget:self];
+    [self fadeToRGB:currentColor atTime:0];
+    //[NSObject cancelPreviousPerformRequestsWithTarget:self];
+    [timer invalidate];
+}
+
+-(void)setPulse:(NSColor*)c {
+    currentColor=c;
+    //[NSObject cancelPreviousPerformRequestsWithTarget:self];
+    [timer invalidate];
     [self startPulse];
 }
 -(void)startPulse {
+    //NSLog(@"startPulse");
+    //[timer invalidate];
     [self fadeToRGB:currentColor atTime:1];
-    [self performSelector:@selector(endPulse) withObject:nil afterDelay:3];
+    //[self performSelector:@selector(endPulse) withObject:nil afterDelay:3];
+    timer = [NSTimer timerWithTimeInterval:2 target:self selector:@selector(endPulse) userInfo:nil repeats:NO];
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
 }
 -(void)endPulse {
+    //NSLog(@"endPulse");
+    //[timer invalidate];
     [self fadeToRGB:[NSColor colorWithCalibratedRed:currentColor.redComponent*.1 green:currentColor.redComponent*.1 blue:currentColor.redComponent*.1 alpha:1] atTime:1];
-    [self performSelector:@selector(startPulse) withObject:nil afterDelay:1];
+    timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(startPulse) userInfo:nil repeats:NO];
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
 }
 
 

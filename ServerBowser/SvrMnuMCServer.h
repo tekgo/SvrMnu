@@ -1,6 +1,6 @@
 //
-//  SvrBowSourceServer.h
-//  ServerBowser
+//  SvrMnuSourceServer.h
+//  SvrMnu
 //
 //  Created by Patrick Winchell on 10/14/12.
 //  Copyright (c) 2012 Super Party Awesome. All rights reserved.
@@ -32,11 +32,12 @@ static inline void readMCString(NSData *data,int *index,char* buffer)
     
 }
 
-@interface SvrBowMCServer : NSObject {
+@interface SvrMnuMCServer : NSObject {
         GCDAsyncSocket *Socket;
     NSData *buffer;
     
 }
+
 
 
 

@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'SvrMnu' target in the 'SvrMnu' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif

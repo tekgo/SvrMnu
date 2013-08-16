@@ -1,6 +1,6 @@
 //
 //  main.m
-//  ServerBowser
+//  SvrMnu
 //
 //  Created by Codemonkey on 10/11/12.
 //  Copyright (c) 2012 Super Party Awesome. All rights reserved.

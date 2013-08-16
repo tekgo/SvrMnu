@@ -1,14 +1,14 @@
 //
-//  SvrBowSourceServer.m
-//  ServerBowser
+//  SvrMnuSourceServer.m
+//  SvrMnu
 //
 //  Created by Patrick Winchell on 10/14/12.
 //  Copyright (c) 2012 Super Party Awesome. All rights reserved.
 //
 
-#import "SvrBowSourceServer.h"
+#import "SvrMnuUnityServer.h"
 
-@implementation SvrBowSourceServer
+@implementation SvrMnuUnityServer
 
 @synthesize serverInfo;
 
@@ -25,12 +25,15 @@
         [udpSocket bindToPort:0 error:&error];
         [udpSocket beginReceiving:&error];
 
-        NSString *host = @"rbtf2.game.nfoservers.com";
-        int port = 27015;
+        NSString *host = @"67.225.180.24";
+        host = @"127.0.0.1";
+        int port = 23466;
         //NSString *msg = @"ÿÿÿÿTSource Engine Query";
         //NSData *data = [msg dataUsingEncoding:NSUTF8StringEncoding];
         
-        const char bytes[] = "\xFF\xFF\xFF\xFF\x54\x53\x6F\x75\x72\x63\x65\x20\x45\x6E\x67\x69\x6E\x65\x20\x51\x75\x65\x72\x79\x00";
+        //const char bytes[] = "\xc0\x00\x00\x00\x00\xc3\xc8\xe4\x13\x00\x01\x01\x02\x00\x00";
+        const char bytes[] = "\x09\x0b\xff\xff\xff\xff\xcf\x48\xda\x8d\x00\xff\xff\x00\xfe\xfe\xfe\xfe\xfd\xfd\xfd\xfd\x12\x34\x56\x78\xbc\x1e\x4b\xe7\x5b\xaa";
+        
         size_t length = (sizeof bytes) - 1; //string literals have implicit trailing '\0'
         
         NSData *data = [NSData dataWithBytes:bytes length:length];
@@ -44,7 +47,9 @@
       fromAddress:(NSData *)address
 withFilterContext:(id)filterContext
 {
-
+    NSLog(@"%@", data);
+    NSLog(@"%@", address);
+    return;
     
 
     [data getBytes:&serverInfo.version range:NSMakeRange(5, 2)];

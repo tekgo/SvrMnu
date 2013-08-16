@@ -1,14 +1,16 @@
 //
-//  SvrBowWFHMenu.m
-//  ServerBowser
+//  SvrMnuWFHMenu.m
+//  SvrMnu
 //
 //  Created by Codemonkey on 10/15/12.
 //  Copyright (c) 2012 Super Party Awesome. All rights reserved.
 //
 
-#import "SvrBowWFHMenu.h"
+#import "SvrMnuWFHMenu.h"
+#import "Reachability.h"
+#import <ApplicationServices/ApplicationServices.h>
 
-@implementation SvrBowWFHMenu
+@implementation SvrMnuWFHMenu
 @synthesize delegate,value;
 -(id) init {
     
@@ -72,8 +74,8 @@
                                    
                                }
                                }
-                               [self makeMenus];
-                               [self updateDelegate];
+                               [self performSelectorInBackground:@selector(makeMenus) withObject:nil];
+
                                //NSLog(responseString);
                                     }];
 }
@@ -82,17 +84,20 @@
     [[self submenu] removeAllItems];
     numServers=0;
     numPlayers=0;
-        NSString *ip = [PortMapper findPublicAddress];
+    NSString *titleString = @"WFH-Unable to connect";
     bool selfie=false;
     if(gameInfo!=nil)
     {
+        //NSString *ip = @"";
+        //if([[Reachability reachabilityForInternetConnection] currentReachabilityStatus]!=0)
+           NSString *ip = [PortMapper findPublicAddress];
         numServers = [(NSString*)[gameInfo valueForKey:@"activegames"] intValue];
         if(numServers==0)
-            [self setTitle:@"WFH-No active games"];
+            titleString = @"WFH-No active games";
         if(numServers==1)
-            [self setTitle:@"WFH-1 active game"];
+            titleString = @"WFH-1 active game";
         if(numServers>1)
-            [self setTitle:[NSString stringWithFormat:@"WFH-%d active games",numServers]];
+            titleString = [NSString stringWithFormat:@"WFH-%d active games",numServers];
         if(numServers>0)
         {
             for(NSDictionary *serverInfo in (NSArray*)[gameInfo valueForKey:@"servers"] )
@@ -110,10 +115,6 @@
             }
         }
     }
-    else
-    {
-        [self setTitle:@"WFH-Unable to connect"];
-    }
     if(gameInfo!=nil) {
         
         value = numPlayers;
@@ -122,6 +123,10 @@
     }
     else
         value = -1;
+    [self setTitle:titleString];
+    [self updateDelegate];
+    [[launcher menu] removeItem:launcher];
+    if([self doesAppExist:@"unity.Les Collégiennes.WFH"])
     [[self submenu] addItem:launcher];
 }
 
@@ -141,6 +146,33 @@
     [[NSWorkspace sharedWorkspace] launchAppWithBundleIdentifier:@"unity.Les Collégiennes.WFH" options:NSWorkspaceLaunchDefault additionalEventParamDescriptor:nil launchIdentifier:NULL];
 }
 
+-(BOOL)doesAppExist:(NSString*)bundleID {
+    BOOL res = false;
+    CFURLRef appURL = NULL;
+    OSStatus result = LSFindApplicationForInfo (
+                                                kLSUnknownCreator,         //creator codes are dead, so we don't care about it
+                                                (__bridge CFStringRef)bundleID, //you can use the bundle ID here
+                                                NULL,                      //or the name of the app here (CFSTR("Safari.app"))
+                                                NULL,                      //this is used if you want an FSRef rather than a CFURLRef
+                                                &appURL
+                                                );
+    switch(result)
+    {
+        case noErr:
+            res=true;
+            break;
+        case kLSApplicationNotFoundErr:
+            res=false;
+            break;
+        default:
+            res=false;
+            break;
+    }
 
-
+    //the CFURLRef returned from the function is retained as per the docs so we must release it
+    if(appURL)
+    CFRelease(appURL);
+    
+    return res;
+}
 @end

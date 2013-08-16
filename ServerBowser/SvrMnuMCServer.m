@@ -1,15 +1,15 @@
 //
-//  SvrBowSourceServer.m
-//  ServerBowser
+//  SvrMnuSourceServer.m
+//  SvrMnu
 //
 //  Created by Patrick Winchell on 10/14/12.
 //  Copyright (c) 2012 Super Party Awesome. All rights reserved.
 //
 
-#import "SvrBowMCServer.h"
+#import "SvrMnuMCServer.h"
 #import "GCDAsyncSocket.h"
 
-@implementation SvrBowMCServer
+@implementation SvrMnuMCServer
 
 
 -(id) init {
