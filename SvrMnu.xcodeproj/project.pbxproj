@@ -142,7 +142,7 @@
 				582391D51696636700A4D3D8 /* Reachability.h */,
 				582391D61696636700A4D3D8 /* Reachability.m */,
 			);
-			name = Reachability;
+			path = Reachability;
 			sourceTree = "<group>";
 		};
 		58270D3D17BEA7AC00BB5623 /* Supporting Libs */ = {
@@ -161,8 +161,7 @@
 				05330549162DED3A0055D2C3 /* SvrMnu.iconset */,
 				589B575816319671009AD19E /* SvrMnuIcon.ai */,
 			);
-			name = Icon;
-			path = ..;
+			path = Icon;
 			sourceTree = "<group>";
 		};
 		587B6DE816961EBF00F7A4EC /* blinklib */ = {
