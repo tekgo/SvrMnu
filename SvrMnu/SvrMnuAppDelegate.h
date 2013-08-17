@@ -3,7 +3,7 @@
 //  SvrMnu
 //
 //  Created by Tekgo on 10/11/12.
-//  Copyright (c) 2012 Super Party Awesome. All rights reserved.
+//  Copyright (c) 2012 Patrick Winchell. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
