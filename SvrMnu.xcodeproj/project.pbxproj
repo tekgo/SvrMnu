@@ -341,6 +341,7 @@
 				GCC_PREFIX_HEADER = "SvrMnu/SvrMnu-Prefix.pch";
 				INFOPLIST_FILE = "SvrMnu/SvrMnu-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.7;
 				WRAPPER_EXTENSION = app;
@@ -356,6 +357,7 @@
 				GCC_PREFIX_HEADER = "SvrMnu/SvrMnu-Prefix.pch";
 				INFOPLIST_FILE = "SvrMnu/SvrMnu-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.7;
 				WRAPPER_EXTENSION = app;
