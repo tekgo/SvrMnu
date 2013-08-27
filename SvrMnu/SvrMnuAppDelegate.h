@@ -10,6 +10,7 @@
 #import "SvrMnuWFHMenu.h"
 #import "Blink1.h"
 #import "Reachability.h"
+#import "LoginMenuItem.h"
 
 
 @interface SvrMnuAppDelegate : NSObject <NSApplicationDelegate,SvrMnuMenuDelegate> {
@@ -20,7 +21,7 @@
     NSTimeInterval lastRefresh;
     NSMenuItem *refresher;
     NSMenuItem *refreshRate;
-    
+    LoginMenuItem *loginMenu;
     bool screenAsleep;
     bool userDeactive;
     Blink1 *blink;

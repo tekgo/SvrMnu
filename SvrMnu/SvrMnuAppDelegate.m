@@ -19,6 +19,7 @@
     statusMenu = [[NSMenu alloc] initWithTitle:@"..."];
     [statusItem setMenu:statusMenu];
     [statusMenu setDelegate:(id <NSMenuDelegate> )self];
+    loginMenu = [[LoginMenuItem alloc] init];
     [self setupMenu];
     lastRefresh=0;
     
@@ -104,6 +105,7 @@
     [statusMenu addItem:wfhMenu];
     [statusMenu addItem:refresher];
     [statusMenu addItem:refreshRate];
+    [statusMenu addItem:loginMenu];
     [statusMenu addItemWithTitle:@"Quit" action:@selector(quit) keyEquivalent:@""];
     
 }

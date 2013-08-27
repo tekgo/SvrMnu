@@ -24,6 +24,7 @@
 		587D1EA2173B27C9001577C4 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 587D1EA1173B27C9001577C4 /* ApplicationServices.framework */; };
 		588133D9162B3B9B00A1487D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 588133D8162B3B9B00A1487D /* Security.framework */; };
 		58B5155016980B330008D8CD /* PortMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B5154F16980B330008D8CD /* PortMapper.m */; };
+		58D68BC917CC282F003E3B91 /* LoginMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D68BC817CC282F003E3B91 /* LoginMenuItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,8 @@
 		589B575816319671009AD19E /* SvrMnuIcon.ai */ = {isa = PBXFileReference; lastKnownFileType = text; path = SvrMnuIcon.ai; sourceTree = "<group>"; };
 		58B5154E16980B330008D8CD /* PortMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortMapper.h; sourceTree = "<group>"; };
 		58B5154F16980B330008D8CD /* PortMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortMapper.m; sourceTree = "<group>"; };
+		58D68BC717CC282F003E3B91 /* LoginMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginMenuItem.h; sourceTree = "<group>"; };
+		58D68BC817CC282F003E3B91 /* LoginMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginMenuItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,8 @@
 				057D1349162C5C7B0079B517 /* SvrMnuWFHMenu.m */,
 				58270D3A17BE964300BB5623 /* SvrMnuMenu.h */,
 				58270D3B17BE965300BB5623 /* SvrMnuMenu.m */,
+				58D68BC717CC282F003E3B91 /* LoginMenuItem.h */,
+				58D68BC817CC282F003E3B91 /* LoginMenuItem.m */,
 				0533053F162DB9590055D2C3 /* MainMenu.xib */,
 				58270D3E17BEAB4500BB5623 /* Icon */,
 				58270D3D17BEA7AC00BB5623 /* Supporting Libs */,
@@ -258,6 +263,7 @@
 				057D134A162C5C7B0079B517 /* SvrMnuWFHMenu.m in Sources */,
 				587B6DF216961EBF00F7A4EC /* blink1-lib.c in Sources */,
 				587B6DF316961EBF00F7A4EC /* Blink1.m in Sources */,
+				58D68BC917CC282F003E3B91 /* LoginMenuItem.m in Sources */,
 				587B6DF416961EBF00F7A4EC /* hid.c in Sources */,
 				582391D71696636700A4D3D8 /* Reachability.m in Sources */,
 				58B5155016980B330008D8CD /* PortMapper.m in Sources */,
