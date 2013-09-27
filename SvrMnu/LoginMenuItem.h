@@ -7,6 +7,10 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface LoginMenuItem : NSMenuItem
+@interface LoginMenuItem : NSMenuItem {
+    LSSharedFileListRef loginItemsList;
+}
+
+-(void)update;
 
 @end

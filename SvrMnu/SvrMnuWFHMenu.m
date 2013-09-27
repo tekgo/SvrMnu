@@ -49,7 +49,7 @@
                                    
                                }
                                }
-                               [self performSelectorInBackground:@selector(makeMenus) withObject:nil];
+                               [self performSelectorOnMainThread:@selector(makeMenus) withObject:Nil waitUntilDone:NO modes:[NSArray arrayWithObject:NSRunLoopCommonModes]];
 
                                     }];
 }

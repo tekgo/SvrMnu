@@ -254,7 +254,7 @@
     else
         [blink off];
     if(wfhMenu.value<0)
-        [blink setColor:[NSColor redColor]];
+        [blink off]; //[blink setColor:[NSColor redColor]];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
