@@ -243,8 +243,11 @@
 -(void)_setTitle:(NSString*)title {
     
 }
-
 -(void)enableBlink {
+    [self performSelectorInBackground:@selector(_enableBlink) withObject:NULL];
+}
+
+-(void)_enableBlink {
     if(wfhMenu.value>0) {
         if(wfhMenu.value>1)
             [blink setPulse:[NSColor colorWithCalibratedRed:1 green:0 blue:1 alpha:1]];

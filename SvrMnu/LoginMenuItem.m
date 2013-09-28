@@ -13,9 +13,20 @@
 
 -(id) init {
     
-    if((self = [super init]))
+    return [self initWithTitle:NULL action:NULL keyEquivalent:NULL];
+}
+
+-(id) initWithTitle:(NSString *)aString action:(SEL)aSelector keyEquivalent:(NSString *)charCode {
+    
+    if(aString==NULL)
+        aString=@"";
+    if(charCode==NULL)
+        charCode=@"";
+    aSelector = @selector(toggleLoginItems);
+    
+    
+    if((self = [super initWithTitle:aString action:aSelector keyEquivalent:charCode]))
 	{
-        
         NSMutableDictionary *defaults =[[NSMutableDictionary alloc] init];
         
         [defaults setValue:[NSNumber numberWithBool:FALSE] forKey:kloginBoolName];
@@ -25,32 +36,28 @@
         [[NSUserDefaults standardUserDefaults] setBool:[self isLoginItem] forKey:kloginBoolName];
         
         [self setCheckMark];
-        
-        NSString *bundlePath = [[NSBundle mainBundle] bundlePath];     NSString *appName = [[NSFileManager defaultManager] displayNameAtPath: bundlePath];
-        appName = [[NSRunningApplication currentApplication] localizedName];
-        self.title = [NSString stringWithFormat:@"Start %@ at login",appName];
-        self.action = @selector(toggleLoginItems);
+        if([aString isEqualToString:@""]) {
+            NSString *bundlePath = [[NSBundle mainBundle] bundlePath];     NSString *appName = [[NSFileManager defaultManager] displayNameAtPath: bundlePath];
+            appName = [[NSRunningApplication currentApplication] localizedName];
+            self.title = [NSString stringWithFormat:@"Start %@ at login",appName];
+        }
         self.target=self;
         
         loginItemsList = LSSharedFileListCreate(kCFAllocatorDefault,
                                                 kLSSharedFileListSessionLoginItems, NULL);
         if(!loginItemsList)
         {
-            // Ack!
             @throw [NSException
                     exceptionWithName:@"LSSharedFileListCreateFailedException"
                     reason:@"Could not create shared file list" userInfo:nil];
             
-            // Or you could just do this:
-            // [self release];
-            // return nil;
         }
         
         LSSharedFileListAddObserver(loginItemsList,
                                     [[NSRunLoop mainRunLoop] getCFRunLoop],
                                     kCFRunLoopDefaultMode, LoginItemsChanged, (__bridge void *)(self));
-        
     }
+    
     return self;
 }
 
@@ -169,12 +176,9 @@
 	}
     return res;
 }
-
+// http://www.cocoabuilder.com/archive/cocoa/220381-notification-on-login-items-change.html
 static void LoginItemsChanged(LSSharedFileListRef list, void *context)
 {
-    // I'm being general here.  This would be the pattern I'd adopt if I were
-    // monitoring multiple shared files lists.
-    //if(list == loginItemsList)
     [(__bridge id)context update];
 }
 
