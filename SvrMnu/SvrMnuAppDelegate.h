@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "SvrMnuWFHMenu.h"
+#import "SvrMnuANUMenu.h"
 #import "Blink1.h"
 #import "Reachability.h"
 #import "LoginMenuItem.h"
@@ -16,7 +17,8 @@
 @interface SvrMnuAppDelegate : NSObject <NSApplicationDelegate,SvrMnuMenuDelegate> {
     NSMenu *statusMenu;
     NSStatusItem * statusItem;
-    SvrMnuWFHMenu *wfhMenu;
+    //SvrMnuWFHMenu *wfhMenu;
+    //SvrMnuANUMenu *anuMenu;
     NSTimer *refreshTimer;
     NSTimeInterval lastRefresh;
     NSMenuItem *refresher;
@@ -30,12 +32,17 @@
     
     NSTimer *updateTimer;
     
+    SvrMnuMenu *primaryMnu;
+    
+    NSMutableArray *mnus;
+    
 
 }
 -(void)setupMenu;
 -(void)quit;
--(void)setTitle:(NSString*)title;
 
 -(void)cancelRefresh;
+
+
 
 @end

@@ -1,24 +1,24 @@
 //
-//  SvrMnuWFHMenu.m
+//  SvrMnuANUMenu.m
 //  SvrMnu
 //
 //  Created by Tekgo on 10/15/12.
 //  Copyright (c) 2012 Patrick Winchell. All rights reserved.
 //
 
-#import "SvrMnuWFHMenu.h"
+#import "SvrMnuANUMenu.h"
 #import "Reachability.h"
 #import <ApplicationServices/ApplicationServices.h>
 
-@implementation SvrMnuWFHMenu
+@implementation SvrMnuANUMenu
 -(id) init {
     
     if((self = [super init]))
 	{
-        appBundleID = @"unity.Les Collégiennes.WFH";
-        [self setTitle:@"Waiting For Horus"];
+        appBundleID = @"unity.DefaultCompany.Anubis";
+        [self setTitle:@"Hunting Anubis"];
         [self setSubmenu:[NSMenu alloc]];
-        launcher = [[NSMenuItem alloc] initWithTitle:@"Launch WFH" action:@selector(launch) keyEquivalent:@""];
+        launcher = [[NSMenuItem alloc] initWithTitle:@"Launch Hunting Anubis" action:@selector(launch) keyEquivalent:@""];
         [launcher setTarget:self];
         [self makeMenus];
 
@@ -31,8 +31,8 @@
     [super refresh];
     
     
-            [self setTitle:@"WFH-Refreshing..."];
-    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://api.xxiivv.com/?key=wfh&cmd=read"]]
+            [self setTitle:@"Anubis-Refreshing..."];
+    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://api.xxiivv.com/?key=anu&cmd=read"]]
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
                                gameInfo=nil;
@@ -58,7 +58,7 @@
     [[self submenu] removeAllItems];
     numServers=0;
     numPlayers=0;
-    NSString *titleString = @"WFH-Unable to connect";
+    NSString *titleString = @"Anubis-Unable to connect";
     bool selfie=false;
     if(gameInfo!=nil)
     {
@@ -69,11 +69,11 @@
            NSString *ip = [PortMapper findPublicAddress];
         numServers = [(NSString*)[gameInfo valueForKey:@"activegames"] intValue];
         if(numServers==0)
-            titleString = @"WFH-No active games";
+            titleString = @"Anubis-No active games";
         if(numServers==1)
-            titleString = @"WFH-1 active game";
+            titleString = @"Anubis-1 active game";
         if(numServers>1)
-            titleString = [NSString stringWithFormat:@"WFH-%d active games",numServers];
+            titleString = [NSString stringWithFormat:@"Anubis-%d active games",numServers];
         if(numServers>0)
         {
             for(NSDictionary *serverInfo in (NSArray*)[gameInfo valueForKey:@"servers"] )
@@ -105,7 +105,6 @@
     if([self doesAppExist:appBundleID])
     [[self submenu] addItem:launcher];
     [[self submenu] addItem:[self primarySetter]];
-    
 }
 
 

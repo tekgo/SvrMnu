@@ -14,16 +14,17 @@
 		05662B7516275A8300C34B08 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05662B7416275A8300C34B08 /* main.m */; };
 		05662B7C16275A8300C34B08 /* SvrMnuAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05662B7B16275A8300C34B08 /* SvrMnuAppDelegate.m */; };
 		057D134A162C5C7B0079B517 /* SvrMnuWFHMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 057D1349162C5C7B0079B517 /* SvrMnuWFHMenu.m */; };
+		5805803D181D687200D02D1B /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5805803C181D687200D02D1B /* ApplicationServices.framework */; };
+		5805803F181D687B00D02D1B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5805803E181D687A00D02D1B /* SystemConfiguration.framework */; };
+		58058041181D688500D02D1B /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58058040181D688500D02D1B /* IOKit.framework */; };
 		582391D71696636700A4D3D8 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 582391D61696636700A4D3D8 /* Reachability.m */; };
-		582391DB1696638C00A4D3D8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 582391DA1696638C00A4D3D8 /* SystemConfiguration.framework */; };
 		58270D3C17BE965300BB5623 /* SvrMnuMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 58270D3B17BE965300BB5623 /* SvrMnuMenu.m */; };
 		587B6DF216961EBF00F7A4EC /* blink1-lib.c in Sources */ = {isa = PBXBuildFile; fileRef = 587B6DEA16961EBF00F7A4EC /* blink1-lib.c */; };
 		587B6DF316961EBF00F7A4EC /* Blink1.m in Sources */ = {isa = PBXBuildFile; fileRef = 587B6DED16961EBF00F7A4EC /* Blink1.m */; };
 		587B6DF416961EBF00F7A4EC /* hid.c in Sources */ = {isa = PBXBuildFile; fileRef = 587B6DEE16961EBF00F7A4EC /* hid.c */; };
-		587B6DFB16961F7E00F7A4EC /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 587B6DFA16961F7E00F7A4EC /* IOKit.framework */; };
-		587D1EA2173B27C9001577C4 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 587D1EA1173B27C9001577C4 /* ApplicationServices.framework */; };
 		588133D9162B3B9B00A1487D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 588133D8162B3B9B00A1487D /* Security.framework */; };
 		58B5155016980B330008D8CD /* PortMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 58B5154F16980B330008D8CD /* PortMapper.m */; };
+		58BB4202181D4AA300C71B68 /* SvrMnuANUMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BB4201181D4AA300C71B68 /* SvrMnuANUMenu.m */; };
 		58D68BC917CC282F003E3B91 /* LoginMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D68BC817CC282F003E3B91 /* LoginMenuItem.m */; };
 /* End PBXBuildFile section */
 
@@ -42,9 +43,11 @@
 		05662B7B16275A8300C34B08 /* SvrMnuAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SvrMnuAppDelegate.m; sourceTree = "<group>"; };
 		057D1348162C5C7B0079B517 /* SvrMnuWFHMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SvrMnuWFHMenu.h; sourceTree = "<group>"; };
 		057D1349162C5C7B0079B517 /* SvrMnuWFHMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SvrMnuWFHMenu.m; sourceTree = "<group>"; };
+		5805803C181D687200D02D1B /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
+		5805803E181D687A00D02D1B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		58058040181D688500D02D1B /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		582391D51696636700A4D3D8 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		582391D61696636700A4D3D8 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		582391DA1696638C00A4D3D8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		58270D3A17BE964300BB5623 /* SvrMnuMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SvrMnuMenu.h; sourceTree = "<group>"; };
 		58270D3B17BE965300BB5623 /* SvrMnuMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SvrMnuMenu.m; sourceTree = "<group>"; };
 		587B6DEA16961EBF00F7A4EC /* blink1-lib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "blink1-lib.c"; sourceTree = "<group>"; };
@@ -54,12 +57,12 @@
 		587B6DEE16961EBF00F7A4EC /* hid.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hid.c; sourceTree = "<group>"; };
 		587B6DEF16961EBF00F7A4EC /* hidapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hidapi.h; sourceTree = "<group>"; };
 		587B6DF016961EBF00F7A4EC /* usbconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = usbconfig.h; sourceTree = "<group>"; };
-		587B6DFA16961F7E00F7A4EC /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/IOKit.framework; sourceTree = DEVELOPER_DIR; };
-		587D1EA1173B27C9001577C4 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/ApplicationServices.framework; sourceTree = DEVELOPER_DIR; };
 		588133D8162B3B9B00A1487D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		589B575816319671009AD19E /* SvrMnuIcon.ai */ = {isa = PBXFileReference; lastKnownFileType = text; path = SvrMnuIcon.ai; sourceTree = "<group>"; };
 		58B5154E16980B330008D8CD /* PortMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortMapper.h; sourceTree = "<group>"; };
 		58B5154F16980B330008D8CD /* PortMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortMapper.m; sourceTree = "<group>"; };
+		58BB4201181D4AA300C71B68 /* SvrMnuANUMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SvrMnuANUMenu.m; sourceTree = "<group>"; };
+		58BB4203181D4AB100C71B68 /* SvrMnuANUMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SvrMnuANUMenu.h; sourceTree = "<group>"; };
 		58D68BC717CC282F003E3B91 /* LoginMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginMenuItem.h; sourceTree = "<group>"; };
 		58D68BC817CC282F003E3B91 /* LoginMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginMenuItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,9 +72,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				587D1EA2173B27C9001577C4 /* ApplicationServices.framework in Frameworks */,
-				582391DB1696638C00A4D3D8 /* SystemConfiguration.framework in Frameworks */,
-				587B6DFB16961F7E00F7A4EC /* IOKit.framework in Frameworks */,
+				58058041181D688500D02D1B /* IOKit.framework in Frameworks */,
+				5805803F181D687B00D02D1B /* SystemConfiguration.framework in Frameworks */,
+				5805803D181D687200D02D1B /* ApplicationServices.framework in Frameworks */,
 				588133D9162B3B9B00A1487D /* Security.framework in Frameworks */,
 				05662B6916275A8300C34B08 /* Cocoa.framework in Frameworks */,
 			);
@@ -100,12 +103,12 @@
 		05662B6716275A8300C34B08 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				58058040181D688500D02D1B /* IOKit.framework */,
+				5805803E181D687A00D02D1B /* SystemConfiguration.framework */,
+				5805803C181D687200D02D1B /* ApplicationServices.framework */,
 				05662B6816275A8300C34B08 /* Cocoa.framework */,
 				05662B6B16275A8300C34B08 /* AppKit.framework */,
 				05662B6D16275A8300C34B08 /* Foundation.framework */,
-				587D1EA1173B27C9001577C4 /* ApplicationServices.framework */,
-				582391DA1696638C00A4D3D8 /* SystemConfiguration.framework */,
-				587B6DFA16961F7E00F7A4EC /* IOKit.framework */,
 				588133D8162B3B9B00A1487D /* Security.framework */,
 			);
 			name = Frameworks;
@@ -118,6 +121,8 @@
 				05662B7B16275A8300C34B08 /* SvrMnuAppDelegate.m */,
 				057D1348162C5C7B0079B517 /* SvrMnuWFHMenu.h */,
 				057D1349162C5C7B0079B517 /* SvrMnuWFHMenu.m */,
+				58BB4203181D4AB100C71B68 /* SvrMnuANUMenu.h */,
+				58BB4201181D4AA300C71B68 /* SvrMnuANUMenu.m */,
 				58270D3A17BE964300BB5623 /* SvrMnuMenu.h */,
 				58270D3B17BE965300BB5623 /* SvrMnuMenu.m */,
 				58D68BC717CC282F003E3B91 /* LoginMenuItem.h */,
@@ -263,6 +268,7 @@
 				057D134A162C5C7B0079B517 /* SvrMnuWFHMenu.m in Sources */,
 				587B6DF216961EBF00F7A4EC /* blink1-lib.c in Sources */,
 				587B6DF316961EBF00F7A4EC /* Blink1.m in Sources */,
+				58BB4202181D4AA300C71B68 /* SvrMnuANUMenu.m in Sources */,
 				58D68BC917CC282F003E3B91 /* LoginMenuItem.m in Sources */,
 				587B6DF416961EBF00F7A4EC /* hid.c in Sources */,
 				582391D71696636700A4D3D8 /* Reachability.m in Sources */,

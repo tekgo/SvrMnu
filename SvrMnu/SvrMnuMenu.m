@@ -27,13 +27,29 @@
 }
 
 -(void) updateDelegate{
-    if(delegate!=nil && [delegate respondsToSelector:@selector(setTitle:)])
+    if(delegate!=nil)
     {
         if(gameInfo!=nil){
-            [delegate setTitle:[NSString stringWithFormat:@"%d",numPlayers]];
+            [delegate setTitle:[NSString stringWithFormat:@"%d",numPlayers] sender:self];
         }
         else
-            [delegate setTitle:nil];
+            [delegate setTitle:nil sender:self];
+    }
+}
+
+-(NSMenuItem*)primarySetter {
+    NSMenuItem *temp = [[NSMenuItem alloc] initWithTitle:@"Set as primary" action:@selector(setAsPrimaryMnu) keyEquivalent:@""];
+    [temp setTarget:self];
+    if(delegate!=Nil) {
+       if([delegate getPrimaryMnu]==self)
+           [temp setState:NSOnState];
+    }
+    return temp;
+}
+-(void)setAsPrimaryMnu {
+    if(delegate!=nil)
+    {
+        [delegate setPrimaryMnu:self];
     }
 }
 

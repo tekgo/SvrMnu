@@ -20,11 +20,30 @@
     [statusItem setMenu:statusMenu];
     [statusMenu setDelegate:(id <NSMenuDelegate> )self];
     loginMenu = [[LoginMenuItem alloc] init];
+    
+    
+    SvrMnuWFHMenu* wfhMenu =[[SvrMnuWFHMenu alloc] init];
+    wfhMenu.delegate=self;
+    SvrMnuANUMenu* anuMenu =[[SvrMnuANUMenu alloc] init];
+    anuMenu.delegate=self;
+    mnus = [NSMutableArray new];
+    [mnus addObject:wfhMenu];
+    [mnus addObject:anuMenu];
+
+    long primaryIndex = [[NSUserDefaults standardUserDefaults] integerForKey:@"primaryMnu"];
+    if(primaryIndex>=[mnus count] || primaryIndex<0)
+        primaryIndex=0;
+    primaryMnu = [mnus objectAtIndex:primaryIndex];
+
     [self setupMenu];
     lastRefresh=0;
     
     blink = [[Blink1 alloc] init];      // set up blink(1) library
     [blink enumerate];
+
+
+    
+    
 
     
     [self refresh];
@@ -68,11 +87,13 @@
     NSMutableDictionary *defaults =[[NSMutableDictionary alloc] init];
     
     [defaults setValue:[NSNumber numberWithInt:5] forKey:@"refreshRate"];
+    [defaults setValue:[NSNumber numberWithInt:0] forKey:@"primaryMnu"];
     
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
     
     
     [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"enableHorus"];
+    
 }
 
 -(void)setupMenu {
@@ -80,15 +101,22 @@
     [statusItem setHighlightMode:YES];
     [statusMenu removeAllItems];
 
-    if(!wfhMenu) {
-        wfhMenu=[[SvrMnuWFHMenu alloc] init];
-        wfhMenu.delegate=self;
-    }
+
     if(!refresher) {
         refresher =[[NSMenuItem alloc] initWithTitle:@"Refresh" action:@selector(forceRefresh) keyEquivalent:@""];
+        [refresher setSubmenu:[[NSMenu alloc] initWithTitle:@""]];
+        [[refresher submenu] addItemWithTitle:@"1m" action:@selector(changeRefreshRate:) keyEquivalent:@""];
+        [[[refresher submenu] itemAtIndex:0] setTag:1];
+        [[refresher submenu] addItemWithTitle:@"2m" action:@selector(changeRefreshRate:) keyEquivalent:@""];
+        [[[refresher submenu] itemAtIndex:1] setTag:2];
+        [[refresher submenu] addItemWithTitle:@"5m" action:@selector(changeRefreshRate:) keyEquivalent:@""];
+        [[[refresher submenu] itemAtIndex:2] setTag:5];
+        [[refresher submenu] addItemWithTitle:@"10m" action:@selector(changeRefreshRate:) keyEquivalent:@""];
+        [[[refresher submenu] itemAtIndex:3] setTag:10];
+        [self changeRefreshRate:nil];
 
     }
-    if(!refreshRate){
+    /*if(!refreshRate){
         refreshRate=[[NSMenuItem alloc] initWithTitle:@"Refresh Rate" action:nil keyEquivalent:@""];
         [refreshRate setSubmenu:[[NSMenu alloc] initWithTitle:@""]];
         [[refreshRate submenu] addItemWithTitle:@"1m" action:@selector(changeRefreshRate:) keyEquivalent:@""];
@@ -101,10 +129,17 @@
         [[[refreshRate submenu] itemAtIndex:3] setTag:10];
         [self changeRefreshRate:nil];
         
+    }*/
+    
+    if(primaryMnu!=NULL)
+        [statusMenu addItem:primaryMnu];
+    
+    for (SvrMnuMenu *mnu in mnus) {
+        if(mnu!=primaryMnu)
+            [statusMenu addItem:mnu];
     }
-    [statusMenu addItem:wfhMenu];
     [statusMenu addItem:refresher];
-    [statusMenu addItem:refreshRate];
+    //[statusMenu addItem:refreshRate];
     [statusMenu addItem:loginMenu];
     [statusMenu addItemWithTitle:@"Quit" action:@selector(quit) keyEquivalent:@""];
     
@@ -116,7 +151,7 @@
         [[NSUserDefaults standardUserDefaults] setInteger:[(NSMenuItem*)sender tag] forKey:@"refreshRate"];
     }
     long rate = [[NSUserDefaults standardUserDefaults] integerForKey:@"refreshRate"];
-    for(NSMenuItem* thisMenu in [[refreshRate submenu] itemArray])
+    for(NSMenuItem* thisMenu in [[refresher submenu] itemArray])
     {
         [thisMenu setState:NSOffState];
         if(thisMenu.tag==rate)
@@ -141,7 +176,9 @@
     [self addTimer];
     if(userDeactive || (screenAsleep && ![blink isHere]) )
         return;
-    [wfhMenu refresh];
+    for (SvrMnuMenu *mnu in mnus) {
+        [mnu refresh];
+    }
 }
 
 
@@ -230,13 +267,29 @@
     [statusMenu update];
 }
 
--(void)setTitle:(NSString*)title {
-    [self enableBlink];
-    if(title!=statusItem.title) {
-        if(title!=nil)
-            [statusItem setTitle:title];
-        else
-            [statusItem setTitle:@"..."];
+-(void)setPrimaryMnu:(SvrMnuMenu *)mnu {
+    primaryMnu = mnu;
+    [self setupMenu];
+    for (SvrMnuMenu *mnu in mnus) {
+        [mnu makeMenus];
+    }
+    NSInteger index = [mnus indexOfObject:primaryMnu];
+    [[NSUserDefaults standardUserDefaults] setInteger:index forKey:@"primaryMnu"];
+}
+
+-(SvrMnuMenu*)getPrimaryMnu {
+    return primaryMnu;
+}
+
+-(void)setTitle:(NSString*)title sender:(id)sender {
+    if(sender==primaryMnu) {
+        [self enableBlink];
+        if(title!=statusItem.title) {
+            if(title!=nil)
+                [statusItem setTitle:title];
+            else
+                [statusItem setTitle:@"..."];
+        }
     }
 }
 
@@ -248,16 +301,18 @@
 }
 
 -(void)_enableBlink {
-    if(wfhMenu.value>0) {
-        if(wfhMenu.value>1)
-            [blink setPulse:[NSColor colorWithCalibratedRed:1 green:0 blue:1 alpha:1]];
+    if(primaryMnu!=NULL) {
+        if(primaryMnu.value>0) {
+            if(primaryMnu.value>1)
+                [blink setPulse:[NSColor colorWithCalibratedRed:1 green:0 blue:1 alpha:1]];
+            else
+                [blink setPulse:[NSColor colorWithCalibratedRed:1 green:1 blue:0 alpha:1]];
+        }
         else
-            [blink setPulse:[NSColor colorWithCalibratedRed:1 green:1 blue:0 alpha:1]];
+            [blink off];
+        if(primaryMnu.value<0)
+            [blink off];
     }
-    else
-        [blink off];
-    if(wfhMenu.value<0)
-        [blink off]; //[blink setColor:[NSColor redColor]];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -269,6 +324,35 @@
     [NSApp terminate:nil];
 }
 
+-(BOOL)doesAppExist:(NSString*)bundleID {
+    BOOL res = false;
+    CFURLRef appURL = NULL;
+    OSStatus result = LSFindApplicationForInfo (
+                                                kLSUnknownCreator,         //creator codes are dead, so we don't care about it
+                                                (__bridge CFStringRef)bundleID, //you can use the bundle ID here
+                                                NULL,                      //or the name of the app here (CFSTR("Safari.app"))
+                                                NULL,                      //this is used if you want an FSRef rather than a CFURLRef
+                                                &appURL
+                                                );
+    switch(result)
+    {
+        case noErr:
+            res=true;
+            break;
+        case kLSApplicationNotFoundErr:
+            res=false;
+            break;
+        default:
+            res=false;
+            break;
+    }
+    
+    //the CFURLRef returned from the function is retained as per the docs so we must release it
+    if(appURL)
+        CFRelease(appURL);
+    
+    return res;
+}
 
 
 

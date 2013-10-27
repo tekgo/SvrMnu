@@ -27,6 +27,8 @@
 -(void)launch;
 -(void)makeMenus;
 -(void) updateDelegate;
+-(NSMenuItem*)primarySetter;
+-(void)setAsPrimaryMnu;
 -(BOOL)doesAppExist:(NSString*)bundleID;
 
 
@@ -34,5 +36,7 @@
 @end
 
 @protocol SvrMnuMenuDelegate <NSObject>
--(void)setTitle:(NSString*)title;
+-(void)setTitle:(NSString*)title sender:(id)sender;
+-(void)setPrimaryMnu:(SvrMnuMenu*)mnu;
+-(SvrMnuMenu*)getPrimaryMnu;
 @end
